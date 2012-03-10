@@ -1,0 +1,21 @@
+google-tasks-indicator (0.0.1.2-1ubuntu1) precise; urgency=low
+
+  * Fixed missing dependency "python-flags"
+  * Fixed a bug with autostart
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Tue, 06 Mar 2012 22:10:26 +0100
+
+google-tasks-indicator (0.0.1.1-1ubuntu1) oneiric; urgency=low
+
+  * Complete task from menu
+  * Add task from menu
+  * Clear completed tasks
+  * Refresh items
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 04 Mar 2012 20:11:57 +0100
+
+google-tasks-indicator (0.0.1.0-1ubuntu1) precise; urgency=low
+
+  * First release
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Tue, 21 Feb 2012 09:24:46 +0100

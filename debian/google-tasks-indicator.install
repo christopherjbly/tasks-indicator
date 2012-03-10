@@ -1,0 +1,5 @@
+src/* /usr/share/google-tasks-indicator
+data/google-tasks-indicator-autostart.desktop /usr/share/google-tasks-indicator
+data/Google-Tasks-Indicator.desktop /usr/share/applications
+data/icons/*.svg /usr/share/google-tasks-indicator/icons
+data/icons/google-tasks-indicator.svg /usr/share/pixmaps

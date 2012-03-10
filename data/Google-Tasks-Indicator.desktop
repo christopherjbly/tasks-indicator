@@ -1,0 +1,12 @@
+
+[Desktop Entry]
+Name=Google-Tasks-Indicator
+Version=0.0.1.0
+Exec=/usr/share/google-tasks-indicator/google-tasks-indicator.py
+Comment=Google-Tasks-Indicator
+Icon=/usr/share/pixmaps/google-tasks-indicator.svg
+Type=Application
+Terminal=false
+StartupNotify=true
+Encoding=UTF-8
+Categories=Utility;
