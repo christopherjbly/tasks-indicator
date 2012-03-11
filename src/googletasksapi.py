@@ -110,7 +110,11 @@ class GTAService():
 
 	
 	def get_tasks(self, tasklist_id = '@default'):
-		tasks = self.service.tasks().list(tasklist=tasklist_id).execute()['items']
+		tasks = self.service.tasks().list(tasklist=tasklist_id).execute()
+		if tasks and 'items' in tasks.keys():
+			tasks = tasks['items']
+		else:
+			tasks = []
 		return tasks
 	
 	def get_task(self, task_id, tasklist_id = '@default'):
