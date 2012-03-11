@@ -1,3 +1,11 @@
+google-tasks-indicator (0.0.2.0-1ubuntu1) precise; urgency=low
+
+  * Showing all tasks
+  * Editing tasks
+  * Ordering tasks
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 11 Mar 2012 09:24:43 +0100
+
 google-tasks-indicator (0.0.1.2-1ubuntu1) precise; urgency=low
 
   * Fixed missing dependency "python-flags"

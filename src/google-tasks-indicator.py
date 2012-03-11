@@ -64,10 +64,10 @@ def internet_on():
 
 class MenuNote(Gtk.CheckMenuItem):
 	def __init__(self,note):
-		Gtk.MenuItem.__init__(self)
+		Gtk.CheckMenuItem.__init__(self)
 		self.note = note
 		self.get_children()[0].set_use_markup(True)
-		self.get_children()[0].set_markup('<b><s>%s</s></b>'%note['title'])
+		self.get_children()[0].set_markup('<s>%s</s>'%note['title'])
 		self.set_active(note['status'] == 'completed')
 
 def add2menu(menu, text = None, icon = None, conector_event = None, conector_action = None, note = None):
