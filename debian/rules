@@ -34,12 +34,12 @@ install: build
 	dh_installdirs
 	dh_install
 	# Create languages directories
-	mkdir -p ${CURDIR}/debian/catch-indicator/usr/share/locale-langpack/es/LC_MESSAGES
-	mkdir -p ${CURDIR}/debian/catch-indicator/usr/share/locale-langpack//LC_MESSAGES
+	mkdir -p ${CURDIR}/debian/google-tasks-indicator/usr/share/locale-langpack/es/LC_MESSAGES
+	mkdir -p ${CURDIR}/debian/google-tasks-indicator/usr/share/locale-langpack//LC_MESSAGES
 	# End create languages directories
 	# Compile languages
-	msgfmt template1/es.po -o ${CURDIR}/debian/catch-indicator/usr/share/locale-langpack/es/LC_MESSAGES/catch-indicator.mo
-	msgfmt template1/.po -o ${CURDIR}/debian/catch-indicator/usr/share/locale-langpack//LC_MESSAGES/catch-indicator.mo
+	msgfmt template1/es.po -o ${CURDIR}/debian/google-tasks-indicator/usr/share/locale-langpack/es/LC_MESSAGES/google-tasks-indicator.mo
+	msgfmt template1/.po -o ${CURDIR}/debian/google-tasks-indicator/usr/share/locale-langpack//LC_MESSAGES/google-tasks-indicator.mo
 	# End comile languages
 
 	# Add here commands to install the package into debian/<packagename>.
