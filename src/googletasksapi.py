@@ -139,6 +139,7 @@ class GTAService():
 	def move_task(self, task_id, previous_task_id,tasklist_id = '@default'):
 		result = self.service.tasks().move(tasklist=tasklist_id, task=task_id,  previous=previous_task_id).execute()
 		return result 
+		
 	def move_task_first(self,task_id, tasklist_id = '@default'):
 		result = self.service.tasks().move(tasklist=tasklist_id, task=task_id).execute()
 		return result 
@@ -149,13 +150,9 @@ class GTAService():
 		if not title:
 			if 'title' in task.keys():
 				title = task['title']
-		else:
-			title = ''
 		if not notes:
 			if 'notes' in task.keys():
 				notes = task['notes']
-		else:
-			notes = ''
 		if iscompleted!= None:
 			if iscompleted == True:
 				status = 'completed'
@@ -174,13 +171,13 @@ class GTAService():
 			time = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S.000Z')
 		#
 		task = {
-			'id' : task['id'],
+			'id' : task_id,
 			'title': title,
 			'notes': notes,
 			'status' : status,
 			'due': time
 		  }
-		result = self.service.tasks().update(tasklist='@default', task=task['id'], body=task).execute()
+		result = self.service.tasks().update(tasklist=tasklist_id, task=task_id, body=task).execute()
 		return result
 	
 	def delete_task(self,task_id, tasklist_id = '@default'):

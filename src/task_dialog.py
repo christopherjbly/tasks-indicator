@@ -39,12 +39,12 @@ gettext.textdomain(comun.APP)
 _ = gettext.gettext
 
 
-class NoteDialog(Gtk.Dialog):
-	def __init__(self, note = None):
-		if note == None:
-			dialog_title = comun.APPNAME + ' | '+_('Add New Note')
+class TaskDialog(Gtk.Dialog):
+	def __init__(self, task = None):
+		if task == None:
+			dialog_title = comun.APPNAME + ' | '+_('Add new task')
 		else:
-			dialog_title = comun.APPNAME + ' | '+_('Edit Note')
+			dialog_title = comun.APPNAME + ' | '+_('Edit task')
 		Gtk.Dialog.__init__(self,dialog_title,None,Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,(Gtk.STOCK_OK, Gtk.ResponseType.ACCEPT,Gtk.STOCK_CANCEL,Gtk.ResponseType.CANCEL))
 		self.set_size_request(250, 160)
 		self.set_resizable(False)
@@ -96,17 +96,16 @@ class NoteDialog(Gtk.Dialog):
 		self.entry4 = Gtk.Calendar()
 		table1.attach(self.entry4,1,2,3,4, xoptions = Gtk.AttachOptions.SHRINK, yoptions = Gtk.AttachOptions.SHRINK)
 		#
-		if note != None:
-			if 'title' in note.keys():
-				self.entry1.set_text(note['title'])
-			if 'notes' in note.keys():
-				self.entry2.get_buffer().set_text(note['notes'])
-			if 'status' in note.keys():
-				self.entry3.set_active(note['status'] == 'completed')
-			if 'due' in note.keys():
-				print note['due']
-				selecteddate = dateutil.parser.parse(note['due'])
-				self.entry4.select_month(selecteddate.month,selecteddate.year)
+		if task != None:
+			if 'title' in task.keys():
+				self.entry1.set_text(task['title'])
+			if 'notes' in task.keys():
+				self.entry2.get_buffer().set_text(task['notes'])
+			if 'status' in task.keys():
+				self.entry3.set_active(task['status'] == 'completed')
+			if 'due' in task.keys():
+				selecteddate = dateutil.parser.parse(task['due'])
+				self.entry4.select_month(selecteddate.month-1,selecteddate.year)
 				self.entry4.select_day(selecteddate.day)
 		self.show_all()
 
@@ -132,7 +131,7 @@ class NoteDialog(Gtk.Dialog):
 		
 		
 if __name__ == "__main__":
-	p = NoteDialog(note_id = 'dfa', title = 'prueba', notes = 'notes', completed = True, selecteddate = datetime.datetime.now())
+	p = TaskDialog()
 	if p.run() == Gtk.ResponseType.ACCEPT:
 		p.hide()
 		print p.get_due_date()

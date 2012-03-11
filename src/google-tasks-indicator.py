@@ -45,8 +45,8 @@ import comun
 import googletasksapi
 from configurator import Configuration
 from preferences_dialog import Preferences
-from note_dialog import NoteDialog
-from show_notes_dialog import ShowNotesDialog
+from task_dialog import TaskDialog
+from show_tasks_dialog import ShowTasksDialog
 #
 
 locale.setlocale(locale.LC_ALL, '')
@@ -136,11 +136,11 @@ class GoogleTasksIndicator():
 		#
 		self.indicator.set_status(appindicator.IndicatorStatus.ACTIVE)
 		#self.indicator.set_status(appindicator.IndicatorStatus.ATTENTION)
-		add2menu(menu, text = _('Add new Note'), conector_event = 'activate',conector_action = self.menu_add_new_note)			
+		add2menu(menu, text = _('Add new Note'), conector_event = 'activate',conector_action = self.menu_add_new_task)			
 		add2menu(menu)
 		add2menu(menu, text = _('Refresh'), conector_event = 'activate',conector_action = self.menu_refresh)			
 		add2menu(menu, text = _('Clear completed tasks'), conector_event = 'activate',conector_action = self.menu_clear_completed_tasks)			
-		#add2menu(menu, text = _('Show Notes'), conector_event = 'activate',conector_action = self.menu_show_notes)
+		add2menu(menu, text = _('Show Notes'), conector_event = 'activate',conector_action = self.menu_show_tasks)
 		add2menu(menu)
 		add2menu(menu, text = _('Preferences'), conector_event = 'activate',conector_action = self.menu_preferences_response)
 		add2menu(menu)
@@ -160,10 +160,10 @@ class GoogleTasksIndicator():
 	def get_help_menu(self):
 		help_menu =Gtk.Menu()
 		#		
-		add2menu(help_menu,text = _('Web...'),conector_event = 'activate',conector_action = lambda x: webbrowser.open('https://launchpad.net/catch-indicator'))
-		add2menu(help_menu,text = _('Get help online...'),conector_event = 'activate',conector_action = lambda x: webbrowser.open('https://answers.launchpad.net/catch-indicator'))
-		add2menu(help_menu,text = _('Translate this application...'),conector_event = 'activate',conector_action = lambda x: webbrowser.open('https://translations.launchpad.net/catch-indicator'))
-		add2menu(help_menu,text = _('Report a bug...'),conector_event = 'activate',conector_action = lambda x: webbrowser.open('https://bugs.launchpad.net/catch-indicator'))
+		add2menu(help_menu,text = _('Web...'),conector_event = 'activate',conector_action = lambda x: webbrowser.open('https://launchpad.net/google-tasks-indicator'))
+		add2menu(help_menu,text = _('Get help online...'),conector_event = 'activate',conector_action = lambda x: webbrowser.open('https://answers.launchpad.net/google-tasks-indicator'))
+		add2menu(help_menu,text = _('Translate this application...'),conector_event = 'activate',conector_action = lambda x: webbrowser.open('https://translations.launchpad.net/google-tasks-indicator'))
+		add2menu(help_menu,text = _('Report a bug...'),conector_event = 'activate',conector_action = lambda x: webbrowser.open('https://bugs.launchpad.net/google-tasks-indicator'))
 		add2menu(help_menu)
 		self.menu_about = add2menu(help_menu,text = _('About'),conector_event = 'activate',conector_action = self.menu_about_response)
 		#
@@ -193,15 +193,16 @@ class GoogleTasksIndicator():
 			self.set_menu()
 		annd.destroy()
 		widget.set_active(widget.note['status'] == 'completed')
-		widget.set_sensitive(True)		
+		widget.set_sensitive(True)	
+			
 	def menu_check_item(self,widget):
 		completed = not widget.get_active()
 		widget.note = self.gta.edit_task(task_id = widget.note['id'], tasklist_id = self.tasklist_id, iscompleted = not completed)			
 		widget.set_active(widget.note['status'] == 'completed')
 				
-	def menu_add_new_note(self,widget):
+	def menu_add_new_task(self,widget):
 		widget.set_sensitive(False)
-		annd = NoteDialog()
+		annd = TaskDialog()
 		if annd.run() == Gtk.ResponseType.ACCEPT:
 			title = annd.get_title()
 			notes = annd.get_notes()
@@ -212,6 +213,7 @@ class GoogleTasksIndicator():
 			self.set_menu()
 		annd.destroy()
 		widget.set_sensitive(True)
+		
 	def menu_clear_completed_tasks(self,widget):
 		widget.set_sensitive(False)
 		self.gta.clear_completed_tasks(tasklist_id = self.tasklist_id)
@@ -223,9 +225,9 @@ class GoogleTasksIndicator():
 		self.set_menu()
 		widget.set_sensitive(True)
 		
-	def menu_show_notes(self,widget):
+	def menu_show_tasks(self,widget):
 		widget.set_sensitive(False)
-		snd = ShowNotesDialog(self.user)
+		snd = ShowTasksDialog(self.gta, self.tasklist_id)
 		snd.run()
 		snd.destroy()
 		self.set_menu()
