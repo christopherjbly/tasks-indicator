@@ -67,8 +67,22 @@ class MenuNote(Gtk.CheckMenuItem):
 		Gtk.CheckMenuItem.__init__(self)
 		self.note = note
 		self.get_children()[0].set_use_markup(True)
-		self.get_children()[0].set_markup('<s>%s</s>'%note['title'])
-		self.set_active(note['status'] == 'completed')
+		if 'title' in note.keys():
+			if len(note['title'])>28:
+				title = note['title'][0:25]+'...'
+			else:
+				title = note['title']
+		else:
+			title = ''
+		if 'notes' in note.keys():
+			self.set_tooltip_text(note['notes'])
+		if note['status'] == 'completed':
+			self.get_children()[0].set_markup('<s>%s</s>'%title)
+			self.set_active(True)
+		else:
+			self.get_children()[0].set_markup('%s'%title)
+			self.set_active(False)
+			
 
 def add2menu(menu, text = None, icon = None, conector_event = None, conector_action = None, note = None):
 	if note != None:
@@ -135,12 +149,11 @@ class GoogleTasksIndicator():
 		menu = Gtk.Menu()
 		#
 		self.indicator.set_status(appindicator.IndicatorStatus.ACTIVE)
-		#self.indicator.set_status(appindicator.IndicatorStatus.ATTENTION)
-		add2menu(menu, text = _('Add new Note'), conector_event = 'activate',conector_action = self.menu_add_new_task)			
+		add2menu(menu, text = _('Add new task'), conector_event = 'activate',conector_action = self.menu_add_new_task)			
 		add2menu(menu)
 		add2menu(menu, text = _('Refresh'), conector_event = 'activate',conector_action = self.menu_refresh)			
 		add2menu(menu, text = _('Clear completed tasks'), conector_event = 'activate',conector_action = self.menu_clear_completed_tasks)			
-		add2menu(menu, text = _('Show Notes'), conector_event = 'activate',conector_action = self.menu_show_tasks)
+		add2menu(menu, text = _('Show all tasks'), conector_event = 'activate',conector_action = self.menu_show_tasks)
 		add2menu(menu)
 		add2menu(menu, text = _('Preferences'), conector_event = 'activate',conector_action = self.menu_preferences_response)
 		add2menu(menu)
@@ -173,11 +186,12 @@ class GoogleTasksIndicator():
 
 	def menu_preferences_response(self,widget):
 		widget.set_sensitive(False)
-		p = Preferences()
+		p = Preferences(self.gta)
 		if p.run() == Gtk.ResponseType.ACCEPT:
 			p.save_preferences()
 		p.destroy()
 		self.read_preferences()
+		self.set_menu()
 		widget.set_sensitive(True)
 	
 	def menu_edit_note(self,widget):

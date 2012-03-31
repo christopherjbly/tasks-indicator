@@ -25,20 +25,18 @@ __date__ ='$19/02/2012$'
 #
 
 from gi.repository import Gtk
-import os
-import datetime
 import locale
 import gettext
 import comun
-import dateutil.parser
+import datetime
+from comboboxcalendar import ComboBoxCalendar
 
 
 locale.setlocale(locale.LC_ALL, '')
 gettext.bindtextdomain(comun.APP, comun.LANGDIR)
 gettext.textdomain(comun.APP)
 _ = gettext.gettext
-
-
+		
 class TaskDialog(Gtk.Dialog):
 	def __init__(self, task = None):
 		if task == None:
@@ -87,16 +85,24 @@ class TaskDialog(Gtk.Dialog):
 		table1.attach(scrolledwindow2,1,2,1,2, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.FILL)
 		self.entry2 = Gtk.TextView()
 		self.entry2.set_wrap_mode(Gtk.WrapMode.WORD)
-		scrolledwindow2.set_size_request(450,450)
+		scrolledwindow2.set_size_request(350,150)
 		scrolledwindow2.add(self.entry2)
 		#
 		self.entry3 = Gtk.Switch()
 		table1.attach(self.entry3,1,2,2,3, xoptions = Gtk.AttachOptions.SHRINK, yoptions = Gtk.AttachOptions.SHRINK)
 		#
-		self.entry4 = Gtk.Calendar()
-		table1.attach(self.entry4,1,2,3,4, xoptions = Gtk.AttachOptions.SHRINK, yoptions = Gtk.AttachOptions.SHRINK)
+		hbox = Gtk.HBox()
+		table1.attach(hbox,1,2,3,4, xoptions = Gtk.AttachOptions.SHRINK, yoptions = Gtk.AttachOptions.SHRINK)
+		self.entry4 = Gtk.CheckButton()
+		self.entry4.connect('toggled', self.toggle_clicked )
+		hbox.pack_start(self.entry4,0,0,0)
+		self.entry5 = ComboBoxCalendar(self)
+		self.entry5.set_sensitive(False)
+		hbox.pack_start(self.entry5,0,0,0)
+		#table1.attach(self.entry4,1,2,3,4, xoptions = Gtk.AttachOptions.SHRINK, yoptions = Gtk.AttachOptions.SHRINK)
 		#
 		if task != None:
+			print task.keys()
 			if 'title' in task.keys():
 				self.entry1.set_text(task['title'])
 			if 'notes' in task.keys():
@@ -104,11 +110,16 @@ class TaskDialog(Gtk.Dialog):
 			if 'status' in task.keys():
 				self.entry3.set_active(task['status'] == 'completed')
 			if 'due' in task.keys():
-				selecteddate = dateutil.parser.parse(task['due'])
-				self.entry4.select_month(selecteddate.month-1,selecteddate.year)
-				self.entry4.select_day(selecteddate.day)
+				self.entry4.set_active(True)
+				print task['due']
+				self.entry5.set_date(task['due'])
+			else:
+				self.entry4.set_active(False)
 		self.show_all()
-
+		
+	def toggle_clicked(self,widget):
+		self.entry5.set_sensitive(self.entry4.get_active())
+		
 	def close_application(self,widget):
 		self.ok = False
 	
@@ -125,13 +136,15 @@ class TaskDialog(Gtk.Dialog):
 		return self.entry3.get_active()
 
 	def get_due_date(self):
-		due = self.entry4.get_date()
-		return datetime.date(due[0], due[1]+1, due[2])
+		if self.entry4.get_active():
+			return self.entry5.get_date()
+		return None
 
 		
 		
 if __name__ == "__main__":
 	p = TaskDialog()
+	p.entry5.set_date('2012-03-09T00:00:00.000Z')
 	if p.run() == Gtk.ResponseType.ACCEPT:
 		p.hide()
 		print p.get_due_date()

@@ -39,7 +39,7 @@ from oauth2client.client import OAuth2WebServerFlow
 from oauth2client.tools import run
 
 import datetime
-
+import comun 
 FLAGS = gflags.FLAGS
 
 # Set up a Flow object to be used if we need to authenticate. This
@@ -64,7 +64,7 @@ class GTAService():
 		# If the Credentials don't exist or are invalid, run through the native client
 		# flow. The Storage object will ensure that if successful the good
 		# Credentials will get written back to a file.
-		storage = Storage('tasks.dat')
+		storage = Storage(comun.COOKIE_FILE)
 		credentials = storage.get()
 		if credentials is None or credentials.invalid == True:
 		  credentials = run(FLOW, storage)
@@ -122,21 +122,24 @@ class GTAService():
 		return task
 
 	def create_task(self, tasklist_id = '@default', title = '', notes = '', time = None, iscompleted = False):
-		if time == None:
-			time = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S.000Z')
-		else:
-			time = time.strftime('%Y-%m-%dT%H:%M:%S.000Z')
 		if iscompleted:
 			status = 'completed'
 		else:
 			status = 'needsAction'
-		task = {
-		  'title': title,
-		  'notes': notes,
-		  'status' : status,
-		  'due': time
-		  }
-
+		if time:
+			time = time.strftime('%Y-%m-%dT%H:%M:%S.000Z')
+			task = {
+			  'title': title,
+			  'notes': notes,
+			  'status' : status,
+			  'due': time
+			  }
+		else:
+			task = {
+			  'title': title,
+			  'notes': notes,
+			  'status' : status
+			  }
 		result = self.service.tasks().insert(tasklist='@default', body=task).execute()
 		return result
 
@@ -166,21 +169,22 @@ class GTAService():
 			status = task['status']
 		else:
 			status = 'needsAction'
-			
 		if due:
 			time = due.strftime('%Y-%m-%dT%H:%M:%S.000Z')
-		elif 'due' in task.keys():
-			time =task['due']
+			task = {
+				'id' : task_id,
+				'title': title,
+				'notes': notes,
+				'status' : status,
+				'due': time
+			  }
 		else:
-			time = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S.000Z')
-		#
-		task = {
-			'id' : task_id,
-			'title': title,
-			'notes': notes,
-			'status' : status,
-			'due': time
-		  }
+			task = {
+				'id' : task_id,
+				'title': title,
+				'notes': notes,
+				'status' : status
+			}	
 		result = self.service.tasks().update(tasklist=tasklist_id, task=task_id, body=task).execute()
 		return result
 	

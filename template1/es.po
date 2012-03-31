@@ -8,19 +8,19 @@ msgstr ""
 "Project-Id-Version: google-tasks-indicator 0.0.2.0\n"
 "Report-Msgid-Bugs-To: lorenzo.carbonell.cerezo@gmail.com\n"
 "POT-Creation-Date: 2012-03-11 09:45+0100\n"
-"PO-Revision-Date: 2012-02-26 11:09+0100\n"
-"Last-Translator: atareao <lorenzo.carbonell.cerezo@gmail.com>\n"
+"PO-Revision-Date: 2012-03-14 20:29+0000\n"
+"Last-Translator: Lorenzo Carbonell <Unknown>\n"
 "Language-Team: Spanish\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Launchpad-Export-Date: 2012-03-31 09:32+0000\n"
+"X-Generator: Launchpad (build 15032)\n"
+"Language: es\n"
 
 #: /home/atareao/Dropbox/tp/google-tasks-indicator/src/show_tasks_dialog.py:44
-#, fuzzy
 msgid "Show Tasks"
-msgstr "Muestra todas las notas"
+msgstr "Mostrar tareas"
 
 #: /home/atareao/Dropbox/tp/google-tasks-indicator/src/show_tasks_dialog.py:77
 msgid "Up"
@@ -32,16 +32,16 @@ msgstr "Abajo"
 
 #: /home/atareao/Dropbox/tp/google-tasks-indicator/src/show_tasks_dialog.py:91
 msgid "Mark as completed"
-msgstr ""
+msgstr "Marcar completo"
 
 #: /home/atareao/Dropbox/tp/google-tasks-indicator/src/show_tasks_dialog.py:98
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 #: /home/atareao/Dropbox/tp/google-tasks-indicator/src/show_tasks_dialog.py:105
 #: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:142
 msgid "Clear completed tasks"
-msgstr ""
+msgstr "Borrar tareas completadas"
 
 #: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:139
 msgid "Add new Note"
@@ -49,7 +49,7 @@ msgstr "Añadir una nueva nota"
 
 #: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:141
 msgid "Refresh"
-msgstr ""
+msgstr "Refrescar"
 
 #: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:143
 msgid "Show Notes"
@@ -89,35 +89,32 @@ msgid "About"
 msgstr "Acerca de..."
 
 #: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:245
-#, fuzzy
 msgid "An indicator for Google Tasks"
-msgstr "Un indicador para Catch.com"
+msgstr "Un indicador para Google Tasks"
 
 #: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:45
-#, fuzzy
 msgid "Add new task"
-msgstr "Añadir una nueva nota"
+msgstr "Añadir nueva tarea"
 
 #: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:47
 msgid "Edit task"
-msgstr ""
+msgstr "Editar tarea"
 
 #: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:64
 msgid "Title"
-msgstr ""
+msgstr "Título"
 
 #: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:68
-#, fuzzy
 msgid "Notes"
-msgstr "Muestra todas las notas"
+msgstr "Notas"
 
 #: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:72
 msgid "Completed"
-msgstr ""
+msgstr "Completado"
 
 #: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:76
 msgid "Date due"
-msgstr ""
+msgstr "Fecha de conclusión"
 
 #: /home/atareao/Dropbox/tp/google-tasks-indicator/src/preferences_dialog.py:77
 msgid "Options"
@@ -130,46 +127,3 @@ msgstr "Autoarranque"
 #: /home/atareao/Dropbox/tp/google-tasks-indicator/src/preferences_dialog.py:91
 msgid "Theme light"
 msgstr "Tema claro"
-
-#~ msgid "Add New Note"
-#~ msgstr "Añadir una nueva nota"
-
-#~ msgid "Text"
-#~ msgstr "Texto"
-
-#~ msgid "Image"
-#~ msgstr "Imagen"
-
-#~ msgid "Select one image to add to the Note"
-#~ msgstr "Selecciona una imagen para añadir a la nota"
-
-#~ msgid "Imagenes"
-#~ msgstr "Imágenes"
-
-#~ msgid "Show Note"
-#~ msgstr "Muestra la nota"
-
-#~ msgid "Remove"
-#~ msgstr "Borrar"
-
-#~ msgid "Configure Catch-Indicator"
-#~ msgstr "Configura Catch-Indicator"
-
-#~ msgid ""
-#~ "The username or/and the password are incorrect\n"
-#~ "please, try again?"
-#~ msgstr ""
-#~ "El usuario y/o la contraseña son incorrectos\n"
-#~ "por favor, ¿lo intentamos otra vez?"
-
-#~ msgid "Login"
-#~ msgstr "Login"
-
-#~ msgid "User"
-#~ msgstr "Usuario"
-
-#~ msgid "Password"
-#~ msgstr "Contraseña"
-
-#~ msgid "Time between updates"
-#~ msgstr "Tiempo entre actualizaciones"

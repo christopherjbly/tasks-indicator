@@ -39,10 +39,10 @@ _ = gettext.gettext
 
 
 class Preferences(Gtk.Dialog):
-	def __init__(self):
+	def __init__(self,gta = None):
 		title = comun.APPNAME + ' | '+_('Preferences')
 		Gtk.Dialog.__init__(self,title,None,Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,(Gtk.STOCK_OK, Gtk.ResponseType.ACCEPT,Gtk.STOCK_CANCEL,Gtk.ResponseType.CANCEL))
-		self.set_size_request(180, 170)
+		self.set_size_request(400, 170)
 		self.set_resizable(False)
 		#self.set_icon_from_file(comun.ICON)
 		self.connect('destroy', self.close_application)
@@ -63,16 +63,7 @@ class Preferences(Gtk.Dialog):
 		table1.set_col_spacings(5)
 		table1.set_row_spacings(5)
 		frame1.add(table1)
-		#
-		label11 = Gtk.Label(_('Task list')+':')
-		label11.set_alignment(0,.5)
-		table1.attach(label11,0,1,0,1, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
-		#
-		self.entry1 = Gtk.Entry()
-		self.entry1.set_width_chars(30)
-		table1.attach(self.entry1,1,2,0,1, xoptions = Gtk.AttachOptions.EXPAND, yoptions = Gtk.AttachOptions.SHRINK)
 		'''
-		#
 		frame2 = Gtk.Frame()
 		notebook.append_page(frame2,tab_label = Gtk.Label(_('Options')))
 		table2 = Gtk.Table(rows = 2, columns = 2, homogeneous = False)
@@ -80,6 +71,25 @@ class Preferences(Gtk.Dialog):
 		table2.set_col_spacings(5)
 		table2.set_row_spacings(5)
 		frame2.add(table2)
+		#
+		label11 = Gtk.Label(_('Task list')+':')
+		label11.set_alignment(0,.5)
+		table2.attach(label11,0,1,0,1, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
+		#
+		#
+		liststore = Gtk.ListStore(str,str)
+		if gta:
+			for listitem in gta.get_tasklists():
+				print listitem
+				liststore.append([listitem['title'],listitem['id']])
+		else:
+			liststore.append(['@default','@default'])
+		self.entry1 = Gtk.ComboBox.new_with_model(model=liststore)
+		renderer_text = Gtk.CellRendererText()
+		self.entry1.pack_start(renderer_text, True)
+		self.entry1.add_attribute(renderer_text, "text", 0)
+		self.entry1.set_active(0)
+		table2.attach(self.entry1,1,2,0,1, xoptions = Gtk.AttachOptions.EXPAND, yoptions = Gtk.AttachOptions.SHRINK)
 		#
 		label22 = Gtk.Label(_('Autostart')+':')
 		label22.set_alignment(0,.5)
@@ -95,23 +105,31 @@ class Preferences(Gtk.Dialog):
 		self.switch5 = Gtk.Switch()		
 		table2.attach(self.switch5,1,2,2,3, xoptions = Gtk.AttachOptions.EXPAND, yoptions = Gtk.AttachOptions.SHRINK)
 		#
-		self.load_preferences()
+		self.load_preferences(gta)
 		#
 		self.show_all()
 
-	def load_preferences(self):
+	def load_preferences(self,gta):
 		configuration = Configuration()
-		#self.entry1.set_text(configuration.get('tasklist_id'))
 		if os.path.exists(os.path.join(os.getenv("HOME"),".config/autostart/google-tasks-indicator-autostart.desktop")):
 			self.switch4.set_active(True)
 		if configuration.get('theme') == 'light':
 			self.switch5.set_active(True)
 		else:
 			self.switch5.set_active(False)
-	
+		tasklist_id = configuration.get('tasklist_id')
+		if gta:
+			for i,item in enumerate(self.entry1.get_model()):
+				if tasklist_id == item[1]:
+					self.entry1.set_active(i)
+					return
 	def save_preferences(self):
 		configuration = Configuration()
-		#configuration.set('tasklist_id',self.entry1.get_text())
+		tree_iter = self.entry1.get_active_iter()
+		if tree_iter != None:
+			model = self.entry1.get_model()
+			tasklist_id = model[tree_iter][1]	
+		configuration.set('tasklist_id',tasklist_id)
 		if self.switch5.get_active():
 			configuration.set('theme','light')
 		else:

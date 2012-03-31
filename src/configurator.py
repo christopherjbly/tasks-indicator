@@ -28,10 +28,6 @@ import ConfigParser
 import comun
 import os
 
-config_dir = os.path.join(os.path.expanduser('~'),'.config')
-config_app_dir = os.path.join(config_dir, comun.APP)
-config_file = os.path.join(config_app_dir, comun.APPCONF)
-
 DEFAULTS = {
 			'tasklist_id':'@default',
 			'theme':'light'
@@ -42,7 +38,7 @@ class Configuration(object):
 	def __init__(self):
 		self.config = ConfigParser.RawConfigParser()
 		self.conf = DEFAULTS
-		if not os.path.exists(config_file):
+		if not os.path.exists(comun.CONFIG_FILE):
 			self.create()
 			self.save()
 		self.read()
@@ -76,7 +72,7 @@ class Configuration(object):
 	####################################################################
 	'''
 	def read(self):
-		self.config.read(config_file)
+		self.config.read(comun.CONFIG_FILE)
 		for key in self.conf.keys():
 			self.conf[key] =  self._get(key)
 		
@@ -95,9 +91,9 @@ class Configuration(object):
 	def save(self):
 		for key in self.conf.keys():
 			self.config.set('Configuration', key, self.conf[key])
-		if not os.path.exists(config_app_dir):
-			os.makedirs(config_app_dir)
-		self.config.write(open(config_file, 'w'))
+		if not os.path.exists(comun.CONFIG_APP_DIR):
+			os.makedirs(comun.CONFIG_APP_DIR)
+		self.config.write(open(comun.CONFIG_FILE, 'w'))
 		
 
 if __name__=='__main__':

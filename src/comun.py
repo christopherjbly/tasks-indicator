@@ -27,7 +27,7 @@ __date__ ='$03/03/2012'
 __copyright__ = 'Copyright (c) 2012 Lorenzo Carbonell'
 __license__ = 'GPLV3'
 __url__ = 'http://www.atareao.es'
-__version__ = '0.0.2.2'
+__version__ = '0.0.2.3'
 
 import os
 
@@ -58,3 +58,7 @@ else:
     APPDIR = os.path.join(ROOTDIR, APP)
     ICONDIR = os.path.join(ROOTDIR, 'data/icons')
     ICON = os.path.join(ICONDIR,'google-tasks-indicator.svg')
+CONFIG_DIR = os.path.join(os.path.expanduser('~'),'.config')
+CONFIG_APP_DIR = os.path.join(CONFIG_DIR, APP)
+CONFIG_FILE = os.path.join(CONFIG_APP_DIR, APPCONF)
+COOKIE_FILE = os.path.join(CONFIG_APP_DIR, 'oauth2.dat')
