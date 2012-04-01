@@ -1,3 +1,9 @@
+google-tasks-indicator (0.0.3.1-1ubuntu1) precise; urgency=low
+
+  * Fixed some bugs
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 01 Apr 2012 20:38:40 +0200
+
 google-tasks-indicator (0.0.3.0-1ubuntu1) precise; urgency=low
 
   * New translations: Chinese, Turkish
