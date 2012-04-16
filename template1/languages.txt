@@ -1,2 +1,9 @@
 es
 
+zh_CN
+it
+fi
+tr
+de
+ru
+fr

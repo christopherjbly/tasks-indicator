@@ -5,12 +5,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: google-tasks-indicator\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-03-11 09:45+0100\n"
+"Project-Id-Version: google-tasks-indicator 0.0.3.1\n"
+"Report-Msgid-Bugs-To: lorenzo.carbonell.cerezo@gmail.com\n"
+"POT-Creation-Date: 2012-04-16 11:47+0200\n"
 "PO-Revision-Date: 2012-03-15 03:33+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -38,91 +39,99 @@ msgid "Edit"
 msgstr "编辑"
 
 #: /home/atareao/Dropbox/tp/google-tasks-indicator/src/show_tasks_dialog.py:105
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:142
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:155
 msgid "Clear completed tasks"
 msgstr "清除已完成的任务"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:139
-msgid "Add new Note"
-msgstr "添加新备忘"
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:152
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:43
+msgid "Add new task"
+msgstr "添加新任务"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:141
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:154
 msgid "Refresh"
 msgstr "刷新"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:143
-msgid "Show Notes"
-msgstr "显示备忘"
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:156
+#, fuzzy
+msgid "Show all tasks"
+msgstr "显示任务"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:145
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:158
 #: /home/atareao/Dropbox/tp/google-tasks-indicator/src/preferences_dialog.py:43
 msgid "Preferences"
 msgstr "首选项"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:147
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:160
 msgid "Help"
 msgstr "帮助"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:150
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:163
 msgid "Exit"
 msgstr "退出"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:163
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:176
 msgid "Web..."
 msgstr "网络..."
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:164
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:177
 msgid "Get help online..."
 msgstr "获得在线帮助..."
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:165
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:178
 msgid "Translate this application..."
 msgstr "翻译此程序..."
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:166
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:179
 msgid "Report a bug..."
 msgstr "报告 Bug..."
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:168
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:181
 msgid "About"
 msgstr "关于"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:245
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:259
 msgid "An indicator for Google Tasks"
 msgstr "Google 任务提示器"
 
 #: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:45
-msgid "Add new task"
-msgstr "添加新任务"
-
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:47
 msgid "Edit task"
 msgstr "编辑任务"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:64
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:62
 msgid "Title"
 msgstr "标题"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:68
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:66
 msgid "Notes"
 msgstr "备注"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:72
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:70
 msgid "Completed"
 msgstr "已完成"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:76
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:74
 msgid "Date due"
 msgstr "截止日期"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/preferences_dialog.py:77
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/preferences_dialog.py:68
 msgid "Options"
 msgstr "选项"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/preferences_dialog.py:84
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/preferences_dialog.py:75
+msgid "Task list"
+msgstr ""
+
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/preferences_dialog.py:94
 msgid "Autostart"
 msgstr "开机启动"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/preferences_dialog.py:91
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/preferences_dialog.py:101
 msgid "Theme light"
 msgstr "浅色主题"
+
+#~ msgid "Add new Note"
+#~ msgstr "添加新备忘"
+
+#~ msgid "Show Notes"
+#~ msgstr "显示备忘"

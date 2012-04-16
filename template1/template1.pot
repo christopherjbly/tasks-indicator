@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: lorenzo.carbonell.cerezo@gmail.com\n"
-"POT-Creation-Date: 2012-03-11 09:45+0100\n"
+"POT-Creation-Date: 2012-04-16 11:47+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,91 +38,92 @@ msgid "Edit"
 msgstr ""
 
 #: /home/atareao/Dropbox/tp/google-tasks-indicator/src/show_tasks_dialog.py:105
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:142
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:155
 msgid "Clear completed tasks"
 msgstr ""
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:139
-msgid "Add new Note"
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:152
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:43
+msgid "Add new task"
 msgstr ""
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:141
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:154
 msgid "Refresh"
 msgstr ""
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:143
-msgid "Show Notes"
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:156
+msgid "Show all tasks"
 msgstr ""
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:145
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:158
 #: /home/atareao/Dropbox/tp/google-tasks-indicator/src/preferences_dialog.py:43
 msgid "Preferences"
 msgstr ""
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:147
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:160
 msgid "Help"
 msgstr ""
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:150
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:163
 msgid "Exit"
 msgstr ""
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:163
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:176
 msgid "Web..."
 msgstr ""
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:164
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:177
 msgid "Get help online..."
 msgstr ""
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:165
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:178
 msgid "Translate this application..."
 msgstr ""
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:166
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:179
 msgid "Report a bug..."
 msgstr ""
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:168
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:181
 msgid "About"
 msgstr ""
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:245
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:259
 msgid "An indicator for Google Tasks"
 msgstr ""
 
 #: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:45
-msgid "Add new task"
-msgstr ""
-
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:47
 msgid "Edit task"
 msgstr ""
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:64
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:62
 msgid "Title"
 msgstr ""
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:68
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:66
 msgid "Notes"
 msgstr ""
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:72
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:70
 msgid "Completed"
 msgstr ""
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:76
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:74
 msgid "Date due"
 msgstr ""
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/preferences_dialog.py:77
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/preferences_dialog.py:68
 msgid "Options"
 msgstr ""
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/preferences_dialog.py:84
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/preferences_dialog.py:75
+msgid "Task list"
+msgstr ""
+
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/preferences_dialog.py:94
 msgid "Autostart"
 msgstr ""
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/preferences_dialog.py:91
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/preferences_dialog.py:101
 msgid "Theme light"
 msgstr ""

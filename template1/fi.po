@@ -5,12 +5,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: google-tasks-indicator\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-03-11 09:45+0100\n"
+"Project-Id-Version: google-tasks-indicator 0.0.3.1\n"
+"Report-Msgid-Bugs-To: lorenzo.carbonell.cerezo@gmail.com\n"
+"POT-Creation-Date: 2012-04-16 11:47+0200\n"
 "PO-Revision-Date: 2012-03-14 10:25+0000\n"
 "Last-Translator: Jiri Grönroos <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -38,91 +39,99 @@ msgid "Edit"
 msgstr "Muokkaa"
 
 #: /home/atareao/Dropbox/tp/google-tasks-indicator/src/show_tasks_dialog.py:105
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:142
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:155
 msgid "Clear completed tasks"
 msgstr "Tyhjennä valmiit tehtävät"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:139
-msgid "Add new Note"
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:152
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:43
+msgid "Add new task"
 msgstr "Lisää uusi tehtävä"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:141
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:154
 msgid "Refresh"
 msgstr "Päivitä"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:143
-msgid "Show Notes"
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:156
+#, fuzzy
+msgid "Show all tasks"
 msgstr "Näytä tehtävät"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:145
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:158
 #: /home/atareao/Dropbox/tp/google-tasks-indicator/src/preferences_dialog.py:43
 msgid "Preferences"
 msgstr "Asetukset"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:147
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:160
 msgid "Help"
 msgstr "Ohje"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:150
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:163
 msgid "Exit"
 msgstr "Lopeta"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:163
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:176
 msgid "Web..."
 msgstr "Verkossa..."
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:164
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:177
 msgid "Get help online..."
 msgstr "Hae apua verkosta..."
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:165
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:178
 msgid "Translate this application..."
 msgstr "Käännä tämä ohjelma..."
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:166
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:179
 msgid "Report a bug..."
 msgstr "Raportoi ongelmasta..."
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:168
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:181
 msgid "About"
 msgstr "Tietoja"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:245
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/google-tasks-indicator.py:259
 msgid "An indicator for Google Tasks"
 msgstr "Google Tasks -ilmaisin"
 
 #: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:45
-msgid "Add new task"
-msgstr "Lisää uusi tehtävä"
-
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:47
 msgid "Edit task"
 msgstr "Muokkaa tehtävää"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:64
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:62
 msgid "Title"
 msgstr "Otsikko"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:68
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:66
 msgid "Notes"
 msgstr "Tehtävät"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:72
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:70
 msgid "Completed"
 msgstr "Valmistuneet"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:76
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/task_dialog.py:74
 msgid "Date due"
 msgstr "Tavoitepäivämäärä"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/preferences_dialog.py:77
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/preferences_dialog.py:68
 msgid "Options"
 msgstr "Valinnat"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/preferences_dialog.py:84
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/preferences_dialog.py:75
+msgid "Task list"
+msgstr ""
+
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/preferences_dialog.py:94
 msgid "Autostart"
 msgstr "Automaattinen käynnistys"
 
-#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/preferences_dialog.py:91
+#: /home/atareao/Dropbox/tp/google-tasks-indicator/src/preferences_dialog.py:101
 msgid "Theme light"
 msgstr "Vaalea teema"
+
+#~ msgid "Add new Note"
+#~ msgstr "Lisää uusi tehtävä"
+
+#~ msgid "Show Notes"
+#~ msgstr "Näytä tehtävät"
