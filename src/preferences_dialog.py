@@ -1,5 +1,5 @@
 #! /usr/bin/python
-# -*- coding: iso-8859-15 -*-
+# -*- utf-8 -*-
 #
 __author__='atareao'
 __date__ ='$19/02/2012$'
@@ -30,6 +30,8 @@ import shutil
 import locale
 import gettext
 from configurator import Configuration
+from googletasksapi import GTAService
+from logindialog import LoginDialog
 import comun
 
 locale.setlocale(locale.LC_ALL, '')
@@ -39,9 +41,10 @@ _ = gettext.gettext
 
 
 class Preferences(Gtk.Dialog):
-	def __init__(self,gta = None):
+	def __init__(self,tasks=None):
 		title = comun.APPNAME + ' | '+_('Preferences')
 		Gtk.Dialog.__init__(self,title,None,Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,(Gtk.STOCK_OK, Gtk.ResponseType.ACCEPT,Gtk.STOCK_CANCEL,Gtk.ResponseType.CANCEL))
+		self.set_position(Gtk.WindowPosition.CENTER_ALWAYS)
 		self.set_size_request(400, 170)
 		self.set_resizable(False)
 		#self.set_icon_from_file(comun.ICON)
@@ -53,43 +56,26 @@ class Preferences(Gtk.Dialog):
 		#
 		notebook = Gtk.Notebook()
 		vbox0.add(notebook)
-		'''
 		#
-		frame1 = Gtk.Frame()
-		notebook.append_page(frame1,tab_label = Gtk.Label(_('Task Lists')))
-		#
-		table1 = Gtk.Table(rows = 2, columns = 2, homogeneous = False)
-		table1.set_border_width(5)
-		table1.set_col_spacings(5)
-		table1.set_row_spacings(5)
-		frame1.add(table1)
-		'''
 		frame2 = Gtk.Frame()
 		notebook.append_page(frame2,tab_label = Gtk.Label(_('Options')))
-		table2 = Gtk.Table(rows = 2, columns = 2, homogeneous = False)
+		table2 = Gtk.Table(rows = 3, columns = 2, homogeneous = False)
 		table2.set_border_width(5)
 		table2.set_col_spacings(5)
 		table2.set_row_spacings(5)
 		frame2.add(table2)
 		#
-		label11 = Gtk.Label(_('Task list')+':')
-		label11.set_alignment(0,.5)
-		table2.attach(label11,0,1,0,1, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
+		label12 = Gtk.Label(_('Task List')+':')
+		label12.set_alignment(0,.5)
+		table2.attach(label12,0,1,0,1, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
 		#
-		#
-		liststore = Gtk.ListStore(str,str)
-		if gta:
-			for listitem in gta.get_tasklists():
-				print listitem
-				liststore.append([listitem['title'],listitem['id']])
-		else:
-			liststore.append(['@default','@default'])
-		self.entry1 = Gtk.ComboBox.new_with_model(model=liststore)
+		self.liststore = Gtk.ListStore(str,str)
+		self.entry2 = Gtk.ComboBox.new_with_model(model=self.liststore)
 		renderer_text = Gtk.CellRendererText()
-		self.entry1.pack_start(renderer_text, True)
-		self.entry1.add_attribute(renderer_text, "text", 0)
-		self.entry1.set_active(0)
-		table2.attach(self.entry1,1,2,0,1, xoptions = Gtk.AttachOptions.EXPAND, yoptions = Gtk.AttachOptions.SHRINK)
+		self.entry2.pack_start(renderer_text, True)
+		self.entry2.add_attribute(renderer_text, "text", 0)
+		self.entry2.set_active(0)
+		table2.attach(self.entry2,1,2,0,1, xoptions = Gtk.AttachOptions.EXPAND, yoptions = Gtk.AttachOptions.SHRINK)
 		#
 		label22 = Gtk.Label(_('Autostart')+':')
 		label22.set_alignment(0,.5)
@@ -105,35 +91,153 @@ class Preferences(Gtk.Dialog):
 		self.switch5 = Gtk.Switch()		
 		table2.attach(self.switch5,1,2,2,3, xoptions = Gtk.AttachOptions.EXPAND, yoptions = Gtk.AttachOptions.SHRINK)
 		#
-		self.load_preferences(gta)
+		frame1 = Gtk.Frame()
+		notebook.append_page(frame1,tab_label = Gtk.Label(_('Sync options')))
+		#
+		table1 = Gtk.Table(rows = 3, columns = 4, homogeneous = False)
+		table1.set_border_width(5)
+		table1.set_col_spacings(5)
+		table1.set_row_spacings(5)
+		frame1.add(table1)
+		#
+		label_so_1 = Gtk.Label(_('Tasks local only')+':')
+		label_so_1.set_alignment(0,.5)
+		table1.attach(label_so_1,0,1,0,1, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
+		#
+		self.option_tlo = {}
+		self.option_tlo['copy'] = Gtk.RadioButton(group=None,label=_('Copy to external'))
+		table1.attach(self.option_tlo['copy'],1,2,0,1, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
+		self.option_tlo['delete'] = Gtk.RadioButton(group=self.option_tlo['copy'],label=_('Delete local'))
+		table1.attach(self.option_tlo['delete'],2,3,0,1, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
+		self.option_tlo['none'] = Gtk.RadioButton(group=self.option_tlo['copy'],label=_('Do none'))
+		table1.attach(self.option_tlo['none'],3,4,0,1, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
+		#
+		label_so_1 = Gtk.Label(_('Tasks external only')+':')
+		label_so_1.set_alignment(0,.5)
+		table1.attach(label_so_1,0,1,1,2, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
+		#
+		self.option_teo = {}
+		self.option_teo['copy'] = Gtk.RadioButton(group=None,label=_('Copy to local'))
+		table1.attach(self.option_teo['copy'],1,2,1,2, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
+		self.option_teo['delete'] = Gtk.RadioButton(group=self.option_teo['copy'],label=_('Delete external'))
+		table1.attach(self.option_teo['delete'],2,3,1,2, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
+		self.option_teo['none'] = Gtk.RadioButton(group=self.option_teo['copy'],label=_('Do none'))
+		table1.attach(self.option_teo['none'],3,4,1,2, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
+		#
+		self.option_tb = {}
+		self.option_tb['copy local'] = Gtk.RadioButton(group=None,label=_('Copy to local'))
+		table1.attach(self.option_tb['copy local'],1,2,2,3, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
+		self.option_tb['copy external'] = Gtk.RadioButton(group=self.option_tb['copy local'],label=_('Copy to external'))
+		table1.attach(self.option_tb['copy external'],2,3,2,3, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
+		self.option_tb['none'] = Gtk.RadioButton(group=self.option_tb['copy local'],label=_('Do none'))
+		table1.attach(self.option_tb['none'],3,4,2,3, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
+		#
+		label_so_1 = Gtk.Label(_('Tasks local and external')+':')
+		label_so_1.set_alignment(0,.5)
+		table1.attach(label_so_1,0,1,2,3, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
+		
+		#
+		frame2 = Gtk.Frame()
+		notebook.append_page(frame2,tab_label = Gtk.Label(_('Login')))
+		#
+		table2 = Gtk.Table(rows = 1, columns = 2, homogeneous = False)
+		table2.set_border_width(5)
+		table2.set_col_spacings(5)
+		table2.set_row_spacings(5)
+		frame2.add(table2)
+		#
+		label11 = Gtk.Label(_('Allow access to Google Tasks')+':')
+		label11.set_alignment(0,.5)
+		table2.attach(label11,0,1,0,1, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
+		#
+		self.switch1 = Gtk.Switch()
+		self.switch1.connect('button-press-event',self.on_switch1_changed)
+		self.switch1.connect('activate',self.on_switch1_changed)
+		table2.attach(self.switch1,1,2,0,1, xoptions = Gtk.AttachOptions.EXPAND, yoptions = Gtk.AttachOptions.SHRINK)
+		#
+		self.load_preferences(tasks)
 		#
 		self.show_all()
 
-	def load_preferences(self,gta):
+	def load_preferences(self,tasks):
+		self.switch1.set_active(os.path.exists(comun.TOKEN_FILE))
 		configuration = Configuration()
 		if os.path.exists(os.path.join(os.getenv("HOME"),".config/autostart/google-tasks-indicator-autostart.desktop")):
 			self.switch4.set_active(True)
+		if configuration.get('local') == 0:
+			self.option_tlo['copy'].set_active(True)
+		elif configuration.get('local') == 1:
+			self.option_tlo['delete'].set_active(True)
+		else:
+			self.option_tlo['none'].set_active(True)			
+		#
+		if configuration.get('external') == 0:
+			self.option_teo['copy'].set_active(True)
+		elif configuration.get('external') == 1:
+			self.option_teo['delete'].set_active(True)
+		else:
+			self.option_teo['none'].set_active(True)			
+		#
+		if configuration.get('both') == 0:
+			self.option_tb['copy local'].set_active(True)
+		elif configuration.get('both') == 1:
+			self.option_tb['copy external'].set_active(True)
+		else:
+			self.option_tb['none'].set_active(True)			
+		#
 		if configuration.get('theme') == 'light':
 			self.switch5.set_active(True)
 		else:
 			self.switch5.set_active(False)
 		tasklist_id = configuration.get('tasklist_id')
-		if gta:
-			for i,item in enumerate(self.entry1.get_model()):
-				if tasklist_id == item[1]:
-					self.entry1.set_active(i)
-					return
+		if tasks is not None:
+			self.liststore.clear()
+			self.liststore.append([_('All'),None])			
+			for tasklist in tasks.tasklists.values():
+				self.liststore.append([tasklist['title'],tasklist['id']])
+			if tasklist_id is None:
+				self.entry2.set_active(0)
+			else:
+				for i,item in enumerate(self.liststore):
+					print(tasklist_id,item[1])
+					if tasklist_id == item[1]:
+						self.entry2.set_active(i)
+						break
+		
+		if os.path.exists(comun.TOKEN_FILE):
+			gta = GTAService(token_file = comun.TOKEN_FILE)
+						
 	def save_preferences(self):
 		configuration = Configuration()
-		tree_iter = self.entry1.get_active_iter()
+		tree_iter = self.entry2.get_active_iter()
 		if tree_iter != None:
-			model = self.entry1.get_model()
+			model = self.entry2.get_model()
 			tasklist_id = model[tree_iter][1]	
-		configuration.set('tasklist_id',tasklist_id)
+			configuration.set('tasklist_id',tasklist_id)
 		if self.switch5.get_active():
 			configuration.set('theme','light')
 		else:
 			configuration.set('theme','dark')
+		if self.option_tlo['copy'].get_active()==True:
+			configuration.set('local',0)
+		elif self.option_tlo['delete'].get_active()==True:
+			configuration.set('local',1)
+		else:
+			configuration.set('local',2)
+		if self.option_teo['copy'].get_active()==True:
+			configuration.set('external',0)
+		elif self.option_teo['delete'].get_active()==True:
+			configuration.set('external',1)
+		else:
+			configuration.set('external',2)
+		#
+		if self.option_tb['copy local'].get_active()==True:
+			configuration.set('both',0)
+		elif self.option_tb['copy external'].get_active()==True:
+			configuration.set('both',1)
+		else:
+			configuration.set('both',2)
+		#
 		configuration.save()
 		filestart = os.path.join(os.getenv("HOME"),".config/autostart/google-tasks-indicator-autostart.desktop")
 		if self.switch4.get_active():
@@ -147,7 +251,36 @@ class Preferences(Gtk.Dialog):
 
 	def close_application(self,widget):
 		self.ok = False
-	
+
+	def on_switch1_changed(self,widget,data):
+		if self.switch1.get_active():
+			if os.path.exists(comun.TOKEN_FILE):
+				os.remove(comun.TOKEN_FILE)
+		else:
+			gta = GTAService(token_file = comun.TOKEN_FILE)
+			if gta.do_refresh_authorization() is None:
+				authorize_url = gta.get_authorize_url()
+				ld = LoginDialog(authorize_url)
+				ld.run()
+				gta.get_authorization(ld.code)
+				ld.destroy()				
+				if gta.do_refresh_authorization() is None:
+					md = Gtk.MessageDialog(	parent = self,
+											flags = Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
+											type = Gtk.MessageType.ERROR,
+											buttons = Gtk.ButtonsType.OK_CANCEL,
+											message_format = _('You have to authorize Google-Task-Indicator to use it, do you want to authorize?'))
+					if md.run() == Gtk.ResponseType.CANCEL:
+						exit(3)				
+				else:
+					if gta.do_refresh_authorization() is None:
+						exit(3)
+			self.switch1.set_active(True)
+			self.liststore.clear()
+			self.liststore.append([_('All'),None])
+			for tasklist in gta.get_tasklists().values():
+				self.liststore.append([tasklist['title'],tasklist['id']])
+			self.entry2.set_active(0)	
 
 if __name__ == "__main__":
 	p = Preferences()

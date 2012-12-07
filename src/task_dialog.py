@@ -30,7 +30,7 @@ import gettext
 import comun
 import datetime
 from comboboxcalendar import ComboBoxCalendar
-
+import rfc3339
 
 locale.setlocale(locale.LC_ALL, '')
 gettext.bindtextdomain(comun.APP, comun.LANGDIR)
@@ -38,7 +38,7 @@ gettext.textdomain(comun.APP)
 _ = gettext.gettext
 		
 class TaskDialog(Gtk.Dialog):
-	def __init__(self, task = None):
+	def __init__(self, task = None,tasks = None):
 		if task == None:
 			dialog_title = comun.APPNAME + ' | '+_('Add new task')
 		else:
@@ -53,46 +53,58 @@ class TaskDialog(Gtk.Dialog):
 		vbox0.set_border_width(5)
 		self.get_content_area().add(vbox0)
 		#
-		table1 = Gtk.Table(rows = 4, columns = 2, homogeneous = False)
+		table1 = Gtk.Table(rows = 5, columns = 2, homogeneous = False)
 		table1.set_border_width(5)
 		table1.set_col_spacings(5)
 		table1.set_row_spacings(5)
 		vbox0.add(table1)
 		#
+		label10 = Gtk.Label(_('Task List')+':')
+		label10.set_alignment(0,.5)
+		table1.attach(label10,0,1,0,1, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.FILL)
+		#
+		self.liststore = Gtk.ListStore(str,str)
+		self.entry0 = Gtk.ComboBox.new_with_model(model=self.liststore)
+		renderer_text = Gtk.CellRendererText()
+		self.entry0.pack_start(renderer_text, True)
+		self.entry0.add_attribute(renderer_text, "text", 0)
+		self.entry0.set_active(0)
+		table1.attach(self.entry0,1,2,0,1, xoptions = Gtk.AttachOptions.EXPAND, yoptions = Gtk.AttachOptions.SHRINK)
+		#
 		label11 = Gtk.Label(_('Title')+':')
 		label11.set_alignment(0,.5)
-		table1.attach(label11,0,1,0,1, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.FILL)
+		table1.attach(label11,0,1,1,2, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.FILL)
 		#
 		label12 = Gtk.Label(_('Notes')+':')
 		label12.set_alignment(0,0)
-		table1.attach(label12,0,1,1,2, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.FILL)
+		table1.attach(label12,0,1,2,3, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.FILL)
 		#
 		label13 = Gtk.Label(_('Completed')+':')
 		label13.set_alignment(0,.5)
-		table1.attach(label13,0,1,2,3, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
+		table1.attach(label13,0,1,3,4, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
 		#
 		label14 = Gtk.Label(_('Date due')+':')
 		label14.set_alignment(0,0)
-		table1.attach(label14,0,1,3,4, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
+		table1.attach(label14,0,1,4,5, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
 		#
 		self.entry1 = Gtk.Entry()
 		self.entry1.set_width_chars(60)
-		table1.attach(self.entry1,1,2,0,1, xoptions = Gtk.AttachOptions.EXPAND, yoptions = Gtk.AttachOptions.SHRINK)
+		table1.attach(self.entry1,1,2,1,2, xoptions = Gtk.AttachOptions.EXPAND, yoptions = Gtk.AttachOptions.SHRINK)
 		#
 		scrolledwindow2 = Gtk.ScrolledWindow()
 		scrolledwindow2.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
 		scrolledwindow2.set_shadow_type(Gtk.ShadowType.ETCHED_OUT)
-		table1.attach(scrolledwindow2,1,2,1,2, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.FILL)
+		table1.attach(scrolledwindow2,1,2,2,3, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.FILL)
 		self.entry2 = Gtk.TextView()
 		self.entry2.set_wrap_mode(Gtk.WrapMode.WORD)
 		scrolledwindow2.set_size_request(350,150)
 		scrolledwindow2.add(self.entry2)
 		#
 		self.entry3 = Gtk.Switch()
-		table1.attach(self.entry3,1,2,2,3, xoptions = Gtk.AttachOptions.SHRINK, yoptions = Gtk.AttachOptions.SHRINK)
+		table1.attach(self.entry3,1,2,3,4, xoptions = Gtk.AttachOptions.SHRINK, yoptions = Gtk.AttachOptions.SHRINK)
 		#
 		hbox = Gtk.HBox()
-		table1.attach(hbox,1,2,3,4, xoptions = Gtk.AttachOptions.SHRINK, yoptions = Gtk.AttachOptions.SHRINK)
+		table1.attach(hbox,1,2,4,5, xoptions = Gtk.AttachOptions.SHRINK, yoptions = Gtk.AttachOptions.SHRINK)
 		self.entry4 = Gtk.CheckButton()
 		self.entry4.connect('toggled', self.toggle_clicked )
 		hbox.pack_start(self.entry4,0,0,0)
@@ -101,20 +113,28 @@ class TaskDialog(Gtk.Dialog):
 		hbox.pack_start(self.entry5,0,0,0)
 		#table1.attach(self.entry4,1,2,3,4, xoptions = Gtk.AttachOptions.SHRINK, yoptions = Gtk.AttachOptions.SHRINK)
 		#
-		if task != None:
-			print task.keys()
+		if tasks is not None:
+			for tasklist in tasks.tasklists.values():
+				self.liststore.append([tasklist['title'],tasklist['id']])						
+		if task is not None:
+			for i,item in enumerate(self.liststore):
+				if task['tasklist_id'] == item[1]:
+					self.entry0.set_active(i)					
+					break			
+			self.entry0.set_active(False)
 			if 'title' in task.keys():
 				self.entry1.set_text(task['title'])
-			if 'notes' in task.keys():
+			if 'notes' in task.keys() and task['notes'] is not None:
 				self.entry2.get_buffer().set_text(task['notes'])
 			if 'status' in task.keys():
 				self.entry3.set_active(task['status'] == 'completed')
-			if 'due' in task.keys():
+			if 'due' in task.keys() and task['due'] is not None:
 				self.entry4.set_active(True)
-				print task['due']
-				self.entry5.set_date(task['due'])
+				self.entry5.set_date(rfc3339.parse_datetime(task['due']))
 			else:
 				self.entry4.set_active(False)
+		else:
+			self.entry0.set_active(0)
 		self.show_all()
 		
 	def toggle_clicked(self,widget):
@@ -123,6 +143,11 @@ class TaskDialog(Gtk.Dialog):
 	def close_application(self,widget):
 		self.ok = False
 	
+	def get_tasklist_id(self):
+		tree_iter = self.entry0.get_active_iter()
+		model = self.entry0.get_model()
+		return model[tree_iter][1]	
+
 	def get_title(self):
 		return self.entry1.get_text()
 		

@@ -1,5 +1,5 @@
 #! /usr/bin/python
-# -*- coding: iso-8859-1 -*-
+# -*- coding: utf-8 -*-
 #
 #
 # com.py
@@ -27,7 +27,7 @@ __date__ ='$03/03/2012'
 __copyright__ = 'Copyright (c) 2012 Lorenzo Carbonell'
 __license__ = 'GPLV3'
 __url__ = 'http://www.atareao.es'
-__version__ = '0.0.3.2'
+__version__ = '0.0.4.0'
 
 import os
 
@@ -42,23 +42,28 @@ def is_package():
 VERSION = __version__
 APP = 'google-tasks-indicator'
 APPCONF = APP + '.conf'
+APPDATA = APP + '.data'
 APPNAME = 'Google-Tasks-Indicator'
-
+CONFIG_DIR = os.path.join(os.path.expanduser('~'),'.config')
+CONFIG_APP_DIR = os.path.join(CONFIG_DIR, APP)
+CONFIG_FILE = os.path.join(CONFIG_APP_DIR, APPCONF)
+DATA_FILE = os.path.join(CONFIG_APP_DIR, APPDATA)
+BACKUP_FILE = os.path.join(CONFIG_APP_DIR, 'backup')
+TOKEN_FILE = os.path.join(CONFIG_APP_DIR, 'token')
+if not os.path.exists(CONFIG_APP_DIR):
+	os.makedirs(CONFIG_APP_DIR)
 # check if running from source
 if is_package():
     ROOTDIR = '/usr/share/'
     LANGDIR = os.path.join(ROOTDIR, 'locale-langpack')
     APPDIR = os.path.join(ROOTDIR, APP)
     ICONDIR = os.path.join(APPDIR, 'icons')
-    ICON = '/usr/share/pixmaps/google-tasks-indicator.svg'    
+    SOCIALDIR = os.path.join(APPDIR, 'social')  
 else:
     VERSION = VERSION + '-src'
     ROOTDIR = os.path.split(os.path.dirname(__file__))[0]
     LANGDIR = os.path.join(ROOTDIR, 'template1')
     APPDIR = os.path.join(ROOTDIR, APP)
     ICONDIR = os.path.join(ROOTDIR, 'data/icons')
-    ICON = os.path.join(ICONDIR,'google-tasks-indicator.svg')
-CONFIG_DIR = os.path.join(os.path.expanduser('~'),'.config')
-CONFIG_APP_DIR = os.path.join(CONFIG_DIR, APP)
-CONFIG_FILE = os.path.join(CONFIG_APP_DIR, APPCONF)
-COOKIE_FILE = os.path.join(CONFIG_APP_DIR, 'oauth2.dat')
+    SOCIALDIR = os.path.join(ROOTDIR, 'data/social')
+ICON = os.path.join(ICONDIR,'google-tasks-indicator.svg')

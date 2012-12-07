@@ -1,5 +1,5 @@
 #! /usr/bin/python
-# -*- coding: iso-8859-1 -*-
+# -*- coding: utf-8 -*-
 #
 __author__='atareao'
 __date__ ='$19/02/2012'
@@ -24,81 +24,57 @@ __date__ ='$19/02/2012'
 #
 #
 
-import ConfigParser
-import comun
+import codecs
 import os
+import json
 
-DEFAULTS = {
+import comun
+
+PARAMS = {	'first-time':True,
 			'tasklist_id':'@default',
-			'theme':'light'
+			'theme':'light',
+			'local':2,
+			'external':2,
+			'both':2
 			}
 
 class Configuration(object):
-	
 	def __init__(self):
-		self.config = ConfigParser.RawConfigParser()
-		self.conf = DEFAULTS
-		if not os.path.exists(comun.CONFIG_FILE):
-			self.create()
-			self.save()
+		self.params = PARAMS
 		self.read()
-	'''
-	####################################################################
-	Config Functions
-	####################################################################
-	'''
-		 
-	def _get(self,key):
-		try:
-			value = self.config.get('Configuration',key)
-		except ConfigParser.NoOptionError:
-			value = DEFAULTS[key]
-		if value == 'None':
-			value = None
-		return value
-		
-	def set(self, key, value):
-		if key in self.conf.keys():
-			self.conf[key] = value
-			
-	def get(self,key):
-		if key in self.conf.keys():
-			return self.conf[key]
-		return None
-
-	'''
-	####################################################################
-	Operations
-	####################################################################
-	'''
-	def read(self):
-		self.config.read(comun.CONFIG_FILE)
-		for key in self.conf.keys():
-			self.conf[key] =  self._get(key)
-		
-
-	def create(self):
-		if not self.config.has_section('Configuration'):
-			self.config.add_section('Configuration')
-		self.set_defaults()
 	
-	def set_defaults(self):
-		self.conf = {}
-		for key in DEFAULTS.keys():
-			self.conf[key] = DEFAULTS[key]
-		self.password = ''
+	def get(self,key):
+		try:
+			return self.params[key]
+		except KeyError:
+			self.params[key] = PARAMS[key]
+			return self.params[key]
+	def has(self,key):
+		return (key in self.params.keys())
+		
+	def set(self,key,value):
+		self.params[key] = value
+			
+	def read(self):		
+		try:
+			f=codecs.open(comun.CONFIG_FILE,'r','utf-8')
+		except IOError:
+			self.save()
+			f=codecs.open(comun.CONFIG_FILE,'r','utf-8')
+		try:
+			self.params = json.loads(f.read())
+		except ValueError:
+			self.save()
+		f.close()
 
 	def save(self):
-		for key in self.conf.keys():
-			self.config.set('Configuration', key, self.conf[key])
 		if not os.path.exists(comun.CONFIG_APP_DIR):
 			os.makedirs(comun.CONFIG_APP_DIR)
-		self.config.write(open(comun.CONFIG_FILE, 'w'))
-		
-
+		f=codecs.open(comun.CONFIG_FILE,'w','utf-8')
+		f.write(json.dumps(self.params))
+		f.close()
+		     
 if __name__=='__main__':
 	configuration = Configuration()
-	#configuration.set('password','armadillo')
-	#configuration.save()
-	print '############################################################'
-	print configuration.get('password')
+	configuration.read()	
+	print 'user %s'%configuration.get('first-time')

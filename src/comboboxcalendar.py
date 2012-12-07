@@ -112,10 +112,6 @@ class ComboBoxCalendar(Gtk.HBox):
 		if type(value) is datetime.datetime:
 			value = datetime.date(value.year,value.month,value.day)
 			self.set_date(value)
-		if type(value) is str or type(value) is unicode:
-			value = datetime.datetime.strptime(value,'%Y-%m-%dT%H:%M:%S.%fZ')
-			value = datetime.date(value.year,value.month,value.day)
-			self.set_date(value)
 					
 	def on_select(self,widget):
 		if not self.month_changed:

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding = UTF-8
+_Name = Google-Taks-Indicator
+Version = 0.0.4.0
+_Comment = An indicator for Google Tasks
+_GenericName = Google-Tasks-Indicator
+Terminal = false
+Icon = /usr/share/google-tasks-indicator/icons/google-tasks-indicator.svg
+Type = Application
+Exec = /usr/bin/google-tasks-indicator

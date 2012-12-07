@@ -1,7 +1,7 @@
 
 [Desktop Entry]
 Type=Application
-Exec=/usr/share/google-tasks-indicator/google-tasks-indicator.py
+Exec=/usr/bin/google-tasks-indicator
 Hidden=false
 NoDisplay=false
 X-GNOME-Autostart-enabled=true
