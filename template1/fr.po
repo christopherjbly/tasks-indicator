@@ -5,9 +5,9 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: google-tasks-indicator 0.0.3.2\n"
+"Project-Id-Version: google-tasks-indicator 0.0.4.0\n"
 "Report-Msgid-Bugs-To: lorenzo.carbonell.cerezo@gmail.com\n"
-"POT-Creation-Date: 2012-12-07 19:15+0100\n"
+"POT-Creation-Date: 2012-12-07 19:18+0100\n"
 "PO-Revision-Date: 2012-03-14 13:01+0000\n"
 "Last-Translator: Éric <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
@@ -158,6 +158,7 @@ msgstr "À propos"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:443
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:456
+#: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:19
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:20
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:21
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:22
@@ -165,7 +166,6 @@ msgstr "À propos"
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:24
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:25
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:26
-#: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:27
 msgid "An indicator for Google Tasks"
 msgstr "Un indicateur pour Google Tasks"
 
@@ -258,6 +258,7 @@ msgstr ""
 msgid "Follow us in Facebook"
 msgstr ""
 
+#: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:11
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:12
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:13
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:14
@@ -265,10 +266,10 @@ msgstr ""
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:16
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:17
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:18
-#: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:19
-msgid "Calendar-Indicator"
+msgid "Google-Taks-Indicator"
 msgstr ""
 
+#: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:27
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:28
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:29
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:30
@@ -276,7 +277,6 @@ msgstr ""
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:32
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:33
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:34
-#: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:35
 msgid "Google-Tasks-Indicator"
 msgstr ""
 
