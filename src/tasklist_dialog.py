@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#!/usr/bin/python
 # -*- coding: iso-8859-15 -*-
 #
 __author__='atareao'
@@ -63,8 +63,8 @@ class TaskListDialog(Gtk.Dialog):
 		self.entry1.set_width_chars(60)
 		table1.attach(self.entry1,1,2,0,1, xoptions = Gtk.AttachOptions.EXPAND, yoptions = Gtk.AttachOptions.SHRINK)
 		#
-		if tasklist != None:
-			print task.keys()
+		if tasklist is not None:
+			print(task.keys())
 			if 'title' in tasklist.keys():
 				self.entry1.set_text(tasklist['title'])
 		self.show_all()
@@ -79,7 +79,7 @@ if __name__ == "__main__":
 	p = TaskListDialog()
 	if p.run() == Gtk.ResponseType.ACCEPT:
 		p.hide()
-		print p.get_title()
+		print(p.get_title())
 	p.destroy()
 	exit(0)
 		

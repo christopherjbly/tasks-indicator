@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#!/usr/bin/python
 # -*- coding: iso-8859-15 -*-
 #
 __author__='atareao'
@@ -118,6 +118,7 @@ class ShowTasksDialog(Gtk.Dialog):
 		self.read_notes()
 		#
 		self.show_all()	
+
 	def func(self,column, cell_renderer, tree_model, iter, user_data):
 		task = tree_model[iter][0]
 		if task is not None:
@@ -128,7 +129,6 @@ class ShowTasksDialog(Gtk.Dialog):
 			else:
 				cell_renderer.set_property('foreground','#000000')
 				cell_renderer.set_property('strikethrough',False)
-		print(user_data)
 	
 	def on_treeview_button_press_event(self,widget,event):
 		#
@@ -140,10 +140,9 @@ class ShowTasksDialog(Gtk.Dialog):
 		if event.button == 1 and event.type == Gdk.EventType(value=5):		
 				model,iter = self.treeview.get_selection().get_selected()
 				id = model.get_value(iter,0)
-				snd = TaskDialog(task)
+				snd = TaskDialog(id)
 				snd.run()
 				snd.destroy()
-				print id
 		
 	def read_notes(self):
 		for note in self.tasks.get_tasks(tasklist_id = self.tasklist_id):

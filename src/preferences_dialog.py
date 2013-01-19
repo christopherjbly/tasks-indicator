@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#!/usr/bin/python
 # -*- utf-8 -*-
 #
 __author__='atareao'

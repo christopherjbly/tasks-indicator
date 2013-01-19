@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 ## rfc3339.py -- Implementation of the majority of RFC 3339 for python.
 # Copyright (c) 2008, 2009, 2010 LShift Ltd. <query@lshift.net>
 #

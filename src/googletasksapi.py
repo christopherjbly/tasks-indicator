@@ -204,7 +204,8 @@ class TaskAlone(object):
 		if len(tasks)>0:
 			self.move_tasks(atask,tasks[0])
 			
-		
+	def get_tasklists(self):
+		return self.tasklists.values()
 		
 	def get_tasks(self,tasklist_id = None):
 		tasks = []
@@ -212,7 +213,8 @@ class TaskAlone(object):
 			for tasklist in self.tasklists.values():
 				tasks.extend(tasklist['tasks'].values())
 		else:
-			tasks = self.tasklists[tasklist_id]['tasks'].values()			
+			if tasklist_id in self.tasklists.keys():
+				tasks = self.tasklists[tasklist_id]['tasks'].values()			
 		return sorted(tasks)
 		
 	def clear_completed_tasks(self,tasklist_id = None):
@@ -374,7 +376,7 @@ class GTAService(GoogleService):
 		return False
 		
 	def _delete_task(self,tasklist_id,task_id):
-		params = {'tasklist':tasklist_id,task:task_id}
+		params = {'tasklist':tasklist_id,'task':task_id}
 		url = 'https://www.googleapis.com/tasks/v1/lists/%s/tasks/%s'%(tasklist_id,task_id)
 		response = self.__do_request('DELETE',url,params=params)
 		if response and response.text:

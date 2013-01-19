@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#!/usr/bin/python
 # -*- coding: iso-8859-15 -*-
 #
 __author__='atareao'
@@ -172,7 +172,7 @@ if __name__ == "__main__":
 	p.entry5.set_date('2012-03-09T00:00:00.000Z')
 	if p.run() == Gtk.ResponseType.ACCEPT:
 		p.hide()
-		print p.get_due_date()
+		print(p.get_due_date())
 	p.destroy()
 	exit(0)
 		

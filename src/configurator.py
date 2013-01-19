@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
 __author__='atareao'
@@ -31,7 +31,7 @@ import json
 import comun
 
 PARAMS = {	'first-time':True,
-			'tasklist_id':'@default',
+			'tasklist_id':None,
 			'theme':'light',
 			'local':2,
 			'external':2,
@@ -77,4 +77,4 @@ class Configuration(object):
 if __name__=='__main__':
 	configuration = Configuration()
 	configuration.read()	
-	print 'user %s'%configuration.get('first-time')
+	print('user %s'%configuration.get('first-time'))

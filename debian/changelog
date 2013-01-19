@@ -1,3 +1,55 @@
+google-tasks-indicator (0.0.5.1.precise.1-1ubuntu1) precise; urgency=low
+
+  * Added tasklist management
+  * Fixed bugs:
+  * #1093340 KeyError 
+  * #1093343 Tasks are not uploading to Google Tasks 
+  * #1097449 Typo: googletasksapi.py:215 should read "self.tasklists.keys()" instead of "self.tasklist.keys()" 
+  * #1097450 Typo: show_tasks_dialog.py:143 should read "snd = TaskDialog(id)" 
+  * #1097460 Typo: googletasksapi.py:378 should read params = {'tasklist':tasklist_id,'task':task_id} 
+  * #1097452 Selecting "All" Tasklists disables the ability to add a new task. 
+  * Updated translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sat, 19 Jan 2013 07:06:18 +0100
+
+google-tasks-indicator (0.0.5.0.precise.4-1ubuntu1) precise; urgency=low
+
+  * needs
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 24 Dec 2012 11:46:51 +0100
+
+google-tasks-indicator (0.0.5.0.precise.3-1ubuntu2) precise; urgency=low
+
+  * Fixed bugs:
+  * #1093340 KeyError 
+  * #1093343 Tasks are not uploading to Google Tasks 
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 24 Dec 2012 10:31:21 +0100
+
+google-tasks-indicator (0.0.5.0.precise.2-1ubuntu1) precise; urgency=low
+
+  * Minor bugs
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 09 Dec 2012 11:03:41 +0100
+
+google-tasks-indicator (0.0.5.0.precise.1-1ubuntu1) precise; urgency=low
+
+  * Fixed some bugs with local work
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 09 Dec 2012 10:21:17 +0100
+
+google-tasks-indicator (0.0.4.2.precise.1-1ubuntu1) precise; urgency=low
+
+  * Updated translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sat, 08 Dec 2012 09:23:27 +0100
+
+google-tasks-indicator (0.0.4.1-1ubuntu1) precise; urgency=low
+
+  * Using python 2.7
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Fri, 07 Dec 2012 19:26:05 +0100
+
 google-tasks-indicator (0.0.4.0-1ubuntu1) precise; urgency=low
 
   * Local work
