@@ -2,7 +2,7 @@
 # Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the google-tasks-indicator package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: google-tasks-indicator 0.0.5.0.precise.4\n"
@@ -14,9 +14,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-03-23 08:48+0000\n"
-"X-Generator: Launchpad (build 16967)\n"
 "Language: bs\n"
+"X-Generator: Launchpad (build 16430)\n"
+"X-Launchpad-Export-Date: 2013-01-19 06:00+0000\n"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/task_dialog.py:43
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:309
@@ -87,8 +87,7 @@ msgstr "Očisti završene zadatke"
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:169
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:164
 msgid ""
-"You have to authorize Google-Tasks-Indicator to manage your Google "
-"Calendar.\n"
+"You have to authorize Google-Tasks-Indicator to manage your Google Calendar.\n"
 " Do you want to authorize?"
 msgstr ""
 

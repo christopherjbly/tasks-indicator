@@ -8,8 +8,13 @@ msgstr ""
 "Project-Id-Version: google-tasks-indicator 0.0.5.0.precise.4\n"
 "Report-Msgid-Bugs-To: lorenzo.carbonell.cerezo@gmail.com\n"
 "POT-Creation-Date: 2013-01-19 07:06+0100\n"
+<<<<<<< TREE
 "PO-Revision-Date: 2013-11-10 01:28+0000\n"
 "Last-Translator: Tobias Bannert <Unknown>\n"
+=======
+"PO-Revision-Date: 2012-12-25 13:46+0000\n"
+"Last-Translator: Der_Techniker <Unknown>\n"
+>>>>>>> MERGE-SOURCE
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,6 +22,7 @@ msgstr ""
 "X-Launchpad-Export-Date: 2014-03-23 08:48+0000\n"
 "X-Generator: Launchpad (build 16967)\n"
 "Language: de\n"
+<<<<<<< TREE
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:456
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:453
@@ -37,6 +43,10 @@ msgstr ""
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:48
 msgid "An indicator for Google Tasks"
 msgstr "Eine Anzeige für Google-Aufgaben"
+=======
+"X-Generator: Launchpad (build 16430)\n"
+"X-Launchpad-Export-Date: 2013-01-19 06:00+0000\n"
+>>>>>>> MERGE-SOURCE
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/task_dialog.py:43
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:309
@@ -121,8 +131,16 @@ msgid "Add new task list"
 msgstr "Neue Aufgabenliste hinzufügen"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:311
+<<<<<<< TREE
+=======
+#, fuzzy
+>>>>>>> MERGE-SOURCE
 msgid "Manage tasklists"
+<<<<<<< TREE
 msgstr "Aufgabenlisten verwalten"
+=======
+msgstr "Neue Aufgabenliste hinzufügen"
+>>>>>>> MERGE-SOURCE
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:313
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:296
@@ -179,6 +197,29 @@ msgstr "Einen Fehler melden …"
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:325
 msgid "About"
 msgstr "Über"
+<<<<<<< TREE
+=======
+
+#: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:456
+#: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:453
+#: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:19
+#: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:20
+#: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:21
+#: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:22
+#: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:23
+#: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:24
+#: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:25
+#: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:26
+#: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:42
+#: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:43
+#: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:44
+#: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:45
+#: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:46
+#: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:47
+#: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:48
+msgid "An indicator for Google Tasks"
+msgstr "Ein Indikator für Google-Aufgaben"
+>>>>>>> MERGE-SOURCE
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:61
 msgid "Options"
@@ -255,7 +296,11 @@ msgstr ""
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:320
 msgid "Homepage"
+<<<<<<< TREE
 msgstr "Webseite"
+=======
+msgstr "Homepage"
+>>>>>>> MERGE-SOURCE
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:321
 msgid "Follow us in Twitter"
@@ -285,7 +330,11 @@ msgstr "Auf Facebook folgen"
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:40
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:41
 msgid "Google-Taks-Indicator"
+<<<<<<< TREE
 msgstr "Google-Aufgabenanzeiger"
+=======
+msgstr "Indikator für Google-Aufgaben"
+>>>>>>> MERGE-SOURCE
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:27
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:28
@@ -303,4 +352,8 @@ msgstr "Google-Aufgabenanzeiger"
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:54
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:55
 msgid "Google-Tasks-Indicator"
+<<<<<<< TREE
 msgstr "Google-Aufgabenanzeiger"
+=======
+msgstr "Indikator für Google-Aufgaben"
+>>>>>>> MERGE-SOURCE
