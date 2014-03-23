@@ -24,14 +24,10 @@
 #
 __author__ = 'Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>'
 __date__ ='$03/03/2012'
-__copyright__ = 'Copyright (c) 2012 Lorenzo Carbonell'
+__copyright__ = 'Copyright (c) 2012-2014 Lorenzo Carbonell'
 __license__ = 'GPLV3'
 __url__ = 'http://www.atareao.es'
-<<<<<<< TREE
-__version__ = '0.0.5.1.quantal.1'
-=======
-__version__ = '0.0.5.1.precise.1'
->>>>>>> MERGE-SOURCE
+__version__ = '0.5.2-0.extras14.04.0'
 
 import os
 
