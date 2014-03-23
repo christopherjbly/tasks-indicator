@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#!/usr/bin/python
 # -*- utf-8 -*-
 #
 __author__='atareao'
@@ -42,9 +42,11 @@ _ = gettext.gettext
 
 class Preferences(Gtk.Dialog):
 	def __init__(self,tasks=None):
-		title = comun.APPNAME + ' | '+_('Preferences')
-		Gtk.Dialog.__init__(self,title,None,Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,(Gtk.STOCK_OK, Gtk.ResponseType.ACCEPT,Gtk.STOCK_CANCEL,Gtk.ResponseType.CANCEL))
-		self.set_position(Gtk.WindowPosition.CENTER_ALWAYS)
+		Gtk.Dialog.__init__(self)
+		self.set_title(comun.APPNAME + ' | '+_('Preferences'))
+		self.set_modal(True)
+		self.add_buttons(Gtk.STOCK_OK, Gtk.ResponseType.ACCEPT,Gtk.STOCK_CANCEL,Gtk.ResponseType.CANCEL)	
+		self.set_position(Gtk.WindowPosition.CENTER_ALWAYS)				
 		self.set_size_request(400, 170)
 		self.set_resizable(False)
 		#self.set_icon_from_file(comun.ICON)
@@ -58,14 +60,14 @@ class Preferences(Gtk.Dialog):
 		vbox0.add(notebook)
 		#
 		frame2 = Gtk.Frame()
-		notebook.append_page(frame2,tab_label = Gtk.Label(_('Options')))
-		table2 = Gtk.Table(rows = 3, columns = 2, homogeneous = False)
+		notebook.append_page(frame2,tab_label = Gtk.Label.new(_('Options')))
+		table2 = Gtk.Table(n_rows = 3, n_columns = 2, homogeneous = False)
 		table2.set_border_width(5)
 		table2.set_col_spacings(5)
 		table2.set_row_spacings(5)
 		frame2.add(table2)
 		#
-		label12 = Gtk.Label(_('Task List')+':')
+		label12 = Gtk.Label.new(_('Task List')+':')
 		label12.set_alignment(0,.5)
 		table2.attach(label12,0,1,0,1, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
 		#
@@ -77,14 +79,14 @@ class Preferences(Gtk.Dialog):
 		self.entry2.set_active(0)
 		table2.attach(self.entry2,1,2,0,1, xoptions = Gtk.AttachOptions.EXPAND, yoptions = Gtk.AttachOptions.SHRINK)
 		#
-		label22 = Gtk.Label(_('Autostart')+':')
+		label22 = Gtk.Label.new(_('Autostart')+':')
 		label22.set_alignment(0,.5)
 		table2.attach(label22,0,1,1,2, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
 		#
 		self.switch4 = Gtk.Switch()		
 		table2.attach(self.switch4,1,2,1,2, xoptions = Gtk.AttachOptions.EXPAND, yoptions = Gtk.AttachOptions.SHRINK)
 		#
-		label23 = Gtk.Label(_('Theme light')+':')
+		label23 = Gtk.Label.new(_('Theme light')+':')
 		label23.set_alignment(0,.5)
 		table2.attach(label23,0,1,2,3, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
 		#
@@ -92,15 +94,15 @@ class Preferences(Gtk.Dialog):
 		table2.attach(self.switch5,1,2,2,3, xoptions = Gtk.AttachOptions.EXPAND, yoptions = Gtk.AttachOptions.SHRINK)
 		#
 		frame1 = Gtk.Frame()
-		notebook.append_page(frame1,tab_label = Gtk.Label(_('Sync options')))
+		notebook.append_page(frame1,tab_label = Gtk.Label.new(_('Sync options')))
 		#
-		table1 = Gtk.Table(rows = 3, columns = 4, homogeneous = False)
+		table1 = Gtk.Table(n_rows = 3, n_columns = 4, homogeneous = False)
 		table1.set_border_width(5)
 		table1.set_col_spacings(5)
 		table1.set_row_spacings(5)
 		frame1.add(table1)
 		#
-		label_so_1 = Gtk.Label(_('Tasks local only')+':')
+		label_so_1 = Gtk.Label.new(_('Tasks local only')+':')
 		label_so_1.set_alignment(0,.5)
 		table1.attach(label_so_1,0,1,0,1, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
 		#
@@ -112,7 +114,7 @@ class Preferences(Gtk.Dialog):
 		self.option_tlo['none'] = Gtk.RadioButton(group=self.option_tlo['copy'],label=_('Do none'))
 		table1.attach(self.option_tlo['none'],3,4,0,1, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
 		#
-		label_so_1 = Gtk.Label(_('Tasks external only')+':')
+		label_so_1 = Gtk.Label.new(_('Tasks external only')+':')
 		label_so_1.set_alignment(0,.5)
 		table1.attach(label_so_1,0,1,1,2, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
 		#
@@ -132,21 +134,21 @@ class Preferences(Gtk.Dialog):
 		self.option_tb['none'] = Gtk.RadioButton(group=self.option_tb['copy local'],label=_('Do none'))
 		table1.attach(self.option_tb['none'],3,4,2,3, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
 		#
-		label_so_1 = Gtk.Label(_('Tasks local and external')+':')
+		label_so_1 = Gtk.Label.new(_('Tasks local and external')+':')
 		label_so_1.set_alignment(0,.5)
 		table1.attach(label_so_1,0,1,2,3, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
 		
 		#
 		frame2 = Gtk.Frame()
-		notebook.append_page(frame2,tab_label = Gtk.Label(_('Login')))
+		notebook.append_page(frame2,tab_label = Gtk.Label.new(_('Login')))
 		#
-		table2 = Gtk.Table(rows = 1, columns = 2, homogeneous = False)
+		table2 = Gtk.Table(n_rows = 1, n_columns = 2, homogeneous = False)
 		table2.set_border_width(5)
 		table2.set_col_spacings(5)
 		table2.set_row_spacings(5)
 		frame2.add(table2)
 		#
-		label11 = Gtk.Label(_('Allow access to Google Tasks')+':')
+		label11 = Gtk.Label.new(_('Allow access to Google Tasks')+':')
 		label11.set_alignment(0,.5)
 		table2.attach(label11,0,1,0,1, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
 		#

@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#!/usr/bin/python
 # -*- coding: iso-8859-15 -*-
 #
 __author__='atareao'
@@ -77,7 +77,8 @@ class ComboBoxCalendar(Gtk.HBox):
 		win_position = self._window.get_position()
 		x_win = win_position[0] + self.entry.get_allocation().x + 3
 		y_win = win_position[1] + self.entry.get_allocation().y + 2*self.entry.get_allocation().height + 3
-		self.dialog = Gtk.Dialog(None, None, Gtk.DialogFlags.MODAL)
+		self.dialog = Gtk.Dialog()#None, None, Gtk.DialogFlags.MODAL)
+		self.dialog.set_modal(True)
 		self.dialog.set_decorated(False)
 		self.dialog.move(x_win, y_win)
 		

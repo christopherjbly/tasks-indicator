@@ -1,88 +1,87 @@
-# Italian translation for google-tasks-indicator
-# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# Swedish translation for google-tasks-indicator
+# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
 # This file is distributed under the same license as the google-tasks-indicator package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: google-tasks-indicator 0.0.5.0.precise.4\n"
-"Report-Msgid-Bugs-To: lorenzo.carbonell.cerezo@gmail.com\n"
+"Project-Id-Version: google-tasks-indicator\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-01-19 07:06+0100\n"
-"PO-Revision-Date: 2012-12-07 23:34+0000\n"
-"Last-Translator: Lorenzo Carbonell <Unknown>\n"
-"Language-Team: Italian <it@li.org>\n"
+"PO-Revision-Date: 2013-09-15 02:33+0000\n"
+"Last-Translator: komakino <salem.sallnas@gmail.com>\n"
+"Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2014-03-23 08:48+0000\n"
 "X-Generator: Launchpad (build 16967)\n"
-"Language: it\n"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/task_dialog.py:43
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:309
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:292
 msgid "Add new task"
-msgstr "Aggiungi una nuova Attività"
+msgstr "Skapa ny uppgift"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/task_dialog.py:45
 msgid "Edit task"
-msgstr "Modifica attività"
+msgstr "Redigera uppgift"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/task_dialog.py:62
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:68
 msgid "Task List"
-msgstr ""
+msgstr "Uppgiftslista"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/task_dialog.py:74
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/tasklist_dialog.py:58
 msgid "Title"
-msgstr "Titolo"
+msgstr "Rubrik"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/task_dialog.py:78
 msgid "Notes"
-msgstr "Note"
+msgstr "Anteckningar"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/task_dialog.py:82
 msgid "Completed"
-msgstr "Completata"
+msgstr "Slutförd"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/task_dialog.py:86
 msgid "Date due"
-msgstr "Scadenza"
+msgstr "Förfallodag"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/tasklist_dialog.py:40
 msgid "Add new tasklist"
-msgstr ""
+msgstr "Skapa ny lista"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/tasklist_dialog.py:42
 msgid "Edit tasklist"
-msgstr ""
+msgstr "Redigera lista"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/show_tasks_dialog.py:45
 msgid "Show Tasks"
-msgstr "Mostra Attività"
+msgstr "Visa uppgifter"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/show_tasks_dialog.py:82
 msgid "Up"
-msgstr "Sposta in alto"
+msgstr "Uppåt"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/show_tasks_dialog.py:89
 msgid "Down"
-msgstr "Sposta in basso"
+msgstr "Nedåt"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/show_tasks_dialog.py:96
 msgid "Mark as completed"
-msgstr "Segna come completata"
+msgstr "Markera som slutförd"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/show_tasks_dialog.py:103
 msgid "Edit"
-msgstr "Modifica"
+msgstr "Redigera"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/show_tasks_dialog.py:110
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:314
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:297
 msgid "Clear completed tasks"
-msgstr "Elimina attività completate"
+msgstr "Rensa slutförda uppgifter"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:169
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:164
@@ -91,71 +90,73 @@ msgid ""
 "Calendar.\n"
 " Do you want to authorize?"
 msgstr ""
+"Du måste tillåta Google-Tasks-Indicator att hantera din Google-kalender.\n"
+" Vill du tillåta detta?"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:310
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:294
 msgid "Add new task list"
-msgstr ""
+msgstr "Lägg till ny lista"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:311
 msgid "Manage tasklists"
-msgstr ""
+msgstr "Hantera listor"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:313
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:296
 msgid "Refresh"
-msgstr "Aggiorna"
+msgstr "Uppdatera"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:315
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:298
 msgid "Show all tasks"
-msgstr "Visualizza tutte le attività"
+msgstr "Visa alla uppgifter"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:316
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:299
 msgid "Synchronize with Google"
-msgstr ""
+msgstr "Synkronisera med Google"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:319
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:45
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:302
 msgid "Preferences"
-msgstr "Preferenze"
+msgstr "Inställningar"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:321
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:304
 msgid "Help"
-msgstr "Aiuto"
+msgstr "Hjälp"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:324
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:307
 msgid "Exit"
-msgstr "Esci"
+msgstr "Avsluta"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:332
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:315
 msgid "Web..."
-msgstr "Web..."
+msgstr "Webben …"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:333
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:316
 msgid "Get help online..."
-msgstr "Ottenere aiuto in linea..."
+msgstr "Få hjälp online..."
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:334
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:317
 msgid "Translate this application..."
-msgstr "Traduci questa applicazione..."
+msgstr "Översätt programmet …"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:335
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:318
 msgid "Report a bug..."
-msgstr "Segnalare un problema..."
+msgstr "Rapportera ett fel..."
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:337
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:325
 msgid "About"
-msgstr "Informazioni su..."
+msgstr "Om"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:456
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:453
@@ -175,94 +176,95 @@ msgstr "Informazioni su..."
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:47
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:48
 msgid "An indicator for Google Tasks"
-msgstr "Un indicatore per Google Tasks"
+msgstr "En indikator för Google Tasks"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:61
 msgid "Options"
-msgstr "Opzioni"
+msgstr "Alternativ"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:80
 msgid "Autostart"
-msgstr "Avvio automatico"
+msgstr "Starta automatiskt"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:87
 msgid "Theme light"
-msgstr "Tema chiaro"
+msgstr "Ljust tema"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:95
 msgid "Sync options"
-msgstr ""
+msgstr "Synkroniseringsinställningar"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:103
 msgid "Tasks local only"
-msgstr ""
+msgstr "Endast lokal"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:108
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:130
 msgid "Copy to external"
-msgstr ""
+msgstr "Kopiera till extern"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:110
 msgid "Delete local"
-msgstr ""
+msgstr "Radera lokal"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:112
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:124
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:132
 msgid "Do none"
-msgstr ""
+msgstr "Gör inget"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:115
 msgid "Tasks external only"
-msgstr ""
+msgstr "Endast extern"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:120
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:128
 msgid "Copy to local"
-msgstr ""
+msgstr "Kopiera till lokal"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:122
 msgid "Delete external"
-msgstr ""
+msgstr "Radera extern"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:135
 msgid "Tasks local and external"
-msgstr ""
+msgstr "Lokala och externa"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:141
 msgid "Login"
-msgstr ""
+msgstr "Logga in"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:149
 msgid "Allow access to Google Tasks"
-msgstr ""
+msgstr "Tillåt åtkomst av Google Tasks"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:195
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:280
 msgid "All"
-msgstr ""
+msgstr "Alla"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:272
 msgid ""
 "You have to authorize Google-Task-Indicator to use it, do you want to "
 "authorize?"
 msgstr ""
+"Du måste tillåta Google-Tasks-Indicator för att använda det. Vill du tillåta?"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:320
 msgid "Homepage"
-msgstr ""
+msgstr "Webbplats"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:321
 msgid "Follow us in Twitter"
-msgstr ""
+msgstr "Följ oss på Twitter"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:322
 msgid "Follow us in Google+"
-msgstr ""
+msgstr "Följ oss på Google+"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:323
 msgid "Follow us in Facebook"
-msgstr ""
+msgstr "Följ oss på Facebook"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:11
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:12
@@ -280,7 +282,7 @@ msgstr ""
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:40
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:41
 msgid "Google-Taks-Indicator"
-msgstr ""
+msgstr "Google-Tasks-Indicator"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:27
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:28
@@ -298,4 +300,4 @@ msgstr ""
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:54
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:55
 msgid "Google-Tasks-Indicator"
-msgstr ""
+msgstr "Google-Tasks-Indicator"

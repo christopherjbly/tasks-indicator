@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
 __author__='lorenzo.carbonell.cerezo@gmail.com'
@@ -69,7 +69,7 @@ class MenuNote(Gtk.CheckMenuItem):
 		Gtk.CheckMenuItem.__init__(self)
 		self.note = note
 		#self.get_children()[0].set_use_markup(True)
-		if 'title' in note.keys():
+		if 'title' in note.keys() and note['title'] is not None:
 			if len(note['title'])>28:
 				title = note['title'][0:25]+'...'
 			else:
@@ -120,8 +120,6 @@ def add2menu(menu, text = None, icon = None, conector_event = None, conector_act
 			else:
 				menu_item = Gtk.ImageMenuItem.new_from_stock(icon, None)
 				menu_item.set_always_show_image(True)
-		if conector_event != None and conector_action != None:				
-			menu_item.connect(conector_event,conector_action)
 	if conector_event != None and conector_action != None:				
 		menu_item.connect(conector_event,conector_action)
 	menu_item.show()
@@ -136,15 +134,13 @@ class GoogleTasksIndicator():
 		self.indicator = appindicator.Indicator.new('Google-Tasks-Indicator', 'Google-Tasks-Indicator', appindicator.IndicatorCategory.APPLICATION_STATUS)
 		self.notification = Notify.Notification.new('','', None)
 		self.tasks = googletasksapi.TaskAlone()
-		self.tasks.restore()
-		if self.tasks.tasklists == {}:
-			tld = TaskListDialog()
-			if tld.run() == Gtk.ResponseType.ACCEPT:
-				tld.hide()
-				self.tasks.create_tasklist(tld.get_title())
-			tld.destroy()
 		self.read_preferences()
-		self.set_menu()
+		self.tasks.restore()
+		if self.tasklist_id is None and len(self.tasks.tasklists.values())>0:
+			for item in self.tasks.tasklists.values():
+				self.tasklist_id = item['id']
+				break
+		self.create_menu()
 		self.menu_update()
 		
 	def on_destroy(self):
@@ -216,7 +212,6 @@ class GoogleTasksIndicator():
 				localtasks = tasklist['tasks']
 				googletasks = gta.get_tasks(tasklist_id=tasklist['id'])
 				### From Local to Google
-				print(localtasks)
 				for task in localtasks.values():
 					if task['id'] not in googletasks.keys():
 						# Task only local
@@ -240,7 +235,7 @@ class GoogleTasksIndicator():
 							tasklist_id = task['tasklist_id']
 							title = task['title']
 							notes = task['notes']
-							iscompleted = (task['status']==completed)
+							iscompleted = (task['status']=='completed')
 							due = task['due']
 							gta.edit_task(task_id, tasklist_id , title = title, notes = notes, iscompleted = iscompleted, due = due)
 				### From Google to Local
@@ -270,24 +265,11 @@ class GoogleTasksIndicator():
 		self.menu_update()
 			
 	def read_preferences(self):
-		error = True
-		while error:
-			try:
-				configuration = Configuration()
-				self.tasklist_id = configuration.get('tasklist_id')
-				self.theme = configuration.get('theme')
-				error = False
-			except Exception as e:
-				print(e)
-				error = True
-				p = Preferences()
-				if p.run() == Gtk.ResponseType.ACCEPT:
-					p.save_preferences()
-				else:
-					exit(1)
-				p.destroy()
+		configuration = Configuration()
+		self.tasklist_id = configuration.get('tasklist_id')
+		self.theme = configuration.get('theme')
 
-	def set_menu(self,check=False):
+	def create_menu(self,check=False):
 		#
 		normal_icon = os.path.join(comun.ICONDIR,'google-tasks-indicator-%s-normal.svg'%(self.theme))
 		starred_icon = os.path.join(comun.ICONDIR,'google-tasks-indicator-%s-starred.svg'%(self.theme))
@@ -299,10 +281,16 @@ class GoogleTasksIndicator():
 		#
 		self.indicator.set_status(appindicator.IndicatorStatus.ACTIVE)
 		self.menu_tasks = []
-		for note in self.tasks.get_tasks(tasklist_id = self.tasklist_id)[:10]:
-			self.menu_tasks.append(add2menu(menu, text = note['title'], conector_event = 'activate',conector_action = self.menu_check_item, note = note))
+		for i in range(10):
+			menu_task = MenuNote(googletasksapi.Task())			
+			menu_task.show()
+			menu_task.set_visible(False)
+			menu_task.connect('activate',self.menu_check_item)
+			menu.append(menu_task)
+			self.menu_tasks.append(menu_task)
 		add2menu(menu)
-		add2menu(menu, text = _('Add new task'), conector_event = 'activate',conector_action = self.menu_add_new_task)			
+		self.mant = add2menu(menu, text = _('Add new task'), conector_event = 'activate',conector_action = self.menu_add_new_task)			
+		self.mant.set_visible(self.tasklist_id is not None)		
 		add2menu(menu, text = _('Add new task list'), conector_event = 'activate',conector_action = self.menu_add_new_tasklist)			
 		add2menu(menu)
 		add2menu(menu, text = _('Refresh'), conector_event = 'activate',conector_action = self.menu_refresh)			
@@ -392,16 +380,18 @@ class GoogleTasksIndicator():
 		tld = TaskListDialog()
 		if tld.run() == Gtk.ResponseType.ACCEPT:
 			tld.hide()
-			self.tasks.create_tasklist(tld.get_title())
-		tld.destroy()
-		self.menu_update()
+			new_tasklist = self.tasks.create_tasklist(tld.get_title())
+			if self.tasklist_id is None:
+				self.tasklist_id = new_tasklist['id']
+				self.mant.set_visible(self.tasklist_id is not None)		
+			self.menu_update()
+		tld.destroy()		
 		widget.set_sensitive(True)
 				
 	def menu_add_new_task(self,widget):
 		widget.set_sensitive(False)
 		annd = TaskDialog(tasks=self.tasks)
 		if annd.run() == Gtk.ResponseType.ACCEPT:
-			annd.hide()			
 			tasklist = self.tasks.tasklists[annd.get_tasklist_id()]
 			atask = self.tasks.create_task(tasklist,annd.get_title())
 			atask['notes'] = annd.get_notes()
@@ -409,20 +399,24 @@ class GoogleTasksIndicator():
 			due = annd.get_due_date()
 			if due is not None:
 				atask.set_due(due)						
-		annd.destroy()
-		self.menu_update()
+			self.menu_update()
+		annd.destroy()		
 		widget.set_sensitive(True)
 		
+		
 	def menu_update(self):
+		self.mant.set_visible(self.tasklist_id is not None)		
 		number_of_tasks = len(self.tasks.get_tasks(tasklist_id = self.tasklist_id)[:10])
 		if number_of_tasks < 10:
 			for index,note in enumerate(self.tasks.get_tasks(tasklist_id = self.tasklist_id)[:number_of_tasks]):
 				self.menu_tasks[index].set_note(note)
-			for index in range(number_of_tasks,10):
 				self.menu_tasks[index].set_visible(True)
+			for index in range(number_of_tasks,10):
+				self.menu_tasks[index].set_visible(False)
 		else:
 			for index,note in enumerate(self.tasks.get_tasks(tasklist_id = self.tasklist_id)[:10]):
 				self.menu_tasks[index].set_note(note)
+				self.menu_tasks[index].set_visible(True)
 			
 	def menu_clear_completed_tasks(self,widget):
 		widget.set_sensitive(False)
@@ -440,10 +434,13 @@ class GoogleTasksIndicator():
 		snd = ShowTasksDialog(self.tasks, self.tasklist_id)
 		snd.run()
 		snd.destroy()
-		self.menu_update()
 		widget.set_sensitive(True)
+		self.menu_update()		
 
 	def menu_exit_response(self,widget):
+		configuration = Configuration()
+		configuration.set('tasklist_id',self.tasklist_id)
+		configuration.save()
 		self.tasks.backup()
 		exit(0)
 
@@ -479,5 +476,3 @@ if __name__ == "__main__":
 	Notify.init("google-tasks-indicator")
 	gti=GoogleTasksIndicator()
 	Gtk.main()
-	print('eo')
-

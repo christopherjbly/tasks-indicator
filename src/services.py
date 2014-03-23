@@ -26,7 +26,7 @@
 import requests
 import json
 import os
-from urllib import urlencode
+from urllib.parse import urlencode
 import random
 import time
 from logindialog import LoginDialog

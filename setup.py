@@ -20,15 +20,7 @@ import ConfigParser
 import codecs
 
 DATA_FILES = [
-('/usr/share/google-tasks-indicator',glob.glob('src/*')),
-('/usr/share/google-tasks-indicator/requests',glob.glob('src/requests/*')),
-('/usr/share/google-tasks-indicator/requests/packages',glob.glob('src/requests/packages/*')),
-('/usr/share/google-tasks-indicator/requests/packages/charade',glob.glob('src/requests/packages/charade/*')),
-('/usr/share/google-tasks-indicator/requests/packages/chardet',glob.glob('src/requests/packages/chardet/*')),
-('/usr/share/google-tasks-indicator/requests/packages/urllib3',glob.glob('src/requests/packages/urllib3/*')),
-('/usr/share/google-tasks-indicator/requests/packages/urllib3/contrib',glob.glob('src/requests/packages/urllib3/contrib/*')),
-('/usr/share/google-tasks-indicator/requests/packages/urllib3/packages',glob.glob('src/requests/packages/urllib3/packages/*')),
-('/usr/share/google-tasks-indicator/requests/packages/urllib3/packages/ssl_match_hostname',glob.glob('src/requests/packages/urllib3/packages/ssl_match_hostname/*')),
+('/usr/share/google-tasks-indicator',glob.glob('src/*.py')),
 ('/usr/bin', ['bin/google-tasks-indicator']),
 ('/usr/share/applications', ['data/Google-Tasks-Indicator.desktop']),
 ('/usr/share/google-tasks-indicator', ['data/google-tasks-indicator-autostart.desktop']),
@@ -293,6 +285,14 @@ class build_trans(cmd.Command):
 					src = os.path.join(path, f)
 					dest_path = os.path.join('build', 'locale-langpack', lang, 'LC_MESSAGES')
 					dest = os.path.join(dest_path, COMPILED_LANGUAGE_FILE)
+					print('###########################################')
+					print('###########################################')
+					print('File: %s'%f)
+					print('Language: %s'%lang)
+					print(dest_path)
+					print(dest)
+					print('###########################################')
+					print('###########################################')
 					if not os.path.exists(dest_path):
 						os.makedirs(dest_path)
 					if not os.path.exists(dest):
@@ -317,7 +317,24 @@ class install_data(_install_data):
 			lang_file = os.path.join('build', 'locale-langpack', lang, 'LC_MESSAGES', COMPILED_LANGUAGE_FILE)
 			self.data_files.append( (lang_dir, [lang_file]) )
 		_install_data.run(self)	
-		
+
+class command_create_deb(cmd.Command):
+	description = 'Create deb package'
+	def initialize_options(self):
+		pass
+ 
+	def finalize_options(self):
+		pass
+ 
+	def run(self):
+		print(ejecuta('debuild -us -uc'))
+
+class create_deb(build_extra.build_extra):
+	sub_commands = build_extra.build_extra.sub_commands + [('command_create_deb', None)]
+	def run(self):
+		build_extra.build_extra.run(self)
+		pass
+				
 setup(name=APP,
 	version=VERSION,
 	author=AUTHOR,
@@ -328,5 +345,7 @@ setup(name=APP,
 	cmdclass={'build': build,
 	'translate':translate,
 	'clean_and_compile':clean_and_compile,
+	'command_create_deb':command_create_deb,
 	'build_trans': build_trans,
+	'create_deb':create_deb,
 	'install_data': install_data,})

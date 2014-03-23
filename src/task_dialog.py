@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#!/usr/bin/python
 # -*- coding: iso-8859-15 -*-
 #
 __author__='atareao'
@@ -38,12 +38,14 @@ gettext.textdomain(comun.APP)
 _ = gettext.gettext
 		
 class TaskDialog(Gtk.Dialog):
-	def __init__(self, task = None,tasks = None):
+	def __init__(self, task = None,tasks = None):		
+		Gtk.Dialog.__init__(self)
 		if task == None:
-			dialog_title = comun.APPNAME + ' | '+_('Add new task')
+			self.set_title(comun.APPNAME + ' | '+_('Add new task'))
 		else:
-			dialog_title = comun.APPNAME + ' | '+_('Edit task')
-		Gtk.Dialog.__init__(self,dialog_title,None,Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,(Gtk.STOCK_OK, Gtk.ResponseType.ACCEPT,Gtk.STOCK_CANCEL,Gtk.ResponseType.CANCEL))
+			self.set_title(comun.APPNAME + ' | '+_('Edit task'))
+		self.set_modal(True)
+		self.add_buttons(Gtk.STOCK_OK, Gtk.ResponseType.ACCEPT,Gtk.STOCK_CANCEL,Gtk.ResponseType.CANCEL)	
 		self.set_size_request(250, 160)
 		self.set_resizable(False)
 		self.set_icon_from_file(comun.ICON)
@@ -53,13 +55,13 @@ class TaskDialog(Gtk.Dialog):
 		vbox0.set_border_width(5)
 		self.get_content_area().add(vbox0)
 		#
-		table1 = Gtk.Table(rows = 5, columns = 2, homogeneous = False)
+		table1 = Gtk.Table(n_rows = 5, n_columns = 2, homogeneous = False)
 		table1.set_border_width(5)
 		table1.set_col_spacings(5)
 		table1.set_row_spacings(5)
 		vbox0.add(table1)
 		#
-		label10 = Gtk.Label(_('Task List')+':')
+		label10 = Gtk.Label.new(_('Task List')+':')
 		label10.set_alignment(0,.5)
 		table1.attach(label10,0,1,0,1, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.FILL)
 		#
@@ -71,19 +73,19 @@ class TaskDialog(Gtk.Dialog):
 		self.entry0.set_active(0)
 		table1.attach(self.entry0,1,2,0,1, xoptions = Gtk.AttachOptions.EXPAND, yoptions = Gtk.AttachOptions.SHRINK)
 		#
-		label11 = Gtk.Label(_('Title')+':')
+		label11 = Gtk.Label.new(_('Title')+':')
 		label11.set_alignment(0,.5)
 		table1.attach(label11,0,1,1,2, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.FILL)
 		#
-		label12 = Gtk.Label(_('Notes')+':')
+		label12 = Gtk.Label.new(_('Notes')+':')
 		label12.set_alignment(0,0)
 		table1.attach(label12,0,1,2,3, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.FILL)
 		#
-		label13 = Gtk.Label(_('Completed')+':')
+		label13 = Gtk.Label.new(_('Completed')+':')
 		label13.set_alignment(0,.5)
 		table1.attach(label13,0,1,3,4, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
 		#
-		label14 = Gtk.Label(_('Date due')+':')
+		label14 = Gtk.Label.new(_('Date due')+':')
 		label14.set_alignment(0,0)
 		table1.attach(label14,0,1,4,5, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.SHRINK)
 		#
@@ -172,7 +174,7 @@ if __name__ == "__main__":
 	p.entry5.set_date('2012-03-09T00:00:00.000Z')
 	if p.run() == Gtk.ResponseType.ACCEPT:
 		p.hide()
-		print p.get_due_date()
+		print(p.get_due_date())
 	p.destroy()
 	exit(0)
 		

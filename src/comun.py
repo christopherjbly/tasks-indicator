@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
 #
@@ -27,7 +27,7 @@ __date__ ='$03/03/2012'
 __copyright__ = 'Copyright (c) 2012 Lorenzo Carbonell'
 __license__ = 'GPLV3'
 __url__ = 'http://www.atareao.es'
-__version__ = '0.0.4.0'
+__version__ = '0.0.5.1.quantal.1'
 
 import os
 

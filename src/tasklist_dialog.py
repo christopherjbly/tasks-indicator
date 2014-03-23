@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#!/usr/bin/python
 # -*- coding: iso-8859-15 -*-
 #
 __author__='atareao'
@@ -36,11 +36,13 @@ _ = gettext.gettext
 		
 class TaskListDialog(Gtk.Dialog):
 	def __init__(self, tasklist = None):
+		Gtk.Dialog.__init__(self)
 		if tasklist == None:
-			dialog_title = comun.APPNAME + ' | '+_('Add new tasklist')
+			self.set_title(comun.APPNAME + ' | '+_('Add new tasklist'))
 		else:
-			dialog_title = comun.APPNAME + ' | '+_('Edit tasklist')
-		Gtk.Dialog.__init__(self,dialog_title,None,Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,(Gtk.STOCK_OK, Gtk.ResponseType.ACCEPT,Gtk.STOCK_CANCEL,Gtk.ResponseType.CANCEL))
+			self.set_title(comun.APPNAME + ' | '+_('Edit tasklist'))
+		self.set_modal(True)
+		self.add_buttons(Gtk.STOCK_OK, Gtk.ResponseType.ACCEPT,Gtk.STOCK_CANCEL,Gtk.ResponseType.CANCEL)	
 		self.set_size_request(200, 80)
 		self.set_resizable(False)
 		self.set_icon_from_file(comun.ICON)
@@ -49,13 +51,13 @@ class TaskListDialog(Gtk.Dialog):
 		vbox0.set_border_width(5)
 		self.get_content_area().add(vbox0)
 		#
-		table1 = Gtk.Table(rows = 1, columns = 2, homogeneous = False)
+		table1 = Gtk.Table(n_rows = 1, n_columns = 2, homogeneous = False)
 		table1.set_border_width(5)
 		table1.set_col_spacings(5)
 		table1.set_row_spacings(5)
 		vbox0.add(table1)
 		#
-		label11 = Gtk.Label(_('Title')+':')
+		label11 = Gtk.Label.new(_('Title')+':')
 		label11.set_alignment(0,.5)
 		table1.attach(label11,0,1,0,1, xoptions = Gtk.AttachOptions.FILL, yoptions = Gtk.AttachOptions.FILL)
 		#
@@ -63,8 +65,8 @@ class TaskListDialog(Gtk.Dialog):
 		self.entry1.set_width_chars(60)
 		table1.attach(self.entry1,1,2,0,1, xoptions = Gtk.AttachOptions.EXPAND, yoptions = Gtk.AttachOptions.SHRINK)
 		#
-		if tasklist != None:
-			print task.keys()
+		if tasklist is not None:
+			print(task.keys())
 			if 'title' in tasklist.keys():
 				self.entry1.set_text(tasklist['title'])
 		self.show_all()
@@ -79,7 +81,7 @@ if __name__ == "__main__":
 	p = TaskListDialog()
 	if p.run() == Gtk.ResponseType.ACCEPT:
 		p.hide()
-		print p.get_title()
+		print(p.get_title())
 	p.destroy()
 	exit(0)
 		

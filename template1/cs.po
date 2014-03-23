@@ -1,4 +1,4 @@
-# Italian translation for google-tasks-indicator
+# Czech translation for google-tasks-indicator
 # Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the google-tasks-indicator package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
@@ -8,81 +8,81 @@ msgstr ""
 "Project-Id-Version: google-tasks-indicator 0.0.5.0.precise.4\n"
 "Report-Msgid-Bugs-To: lorenzo.carbonell.cerezo@gmail.com\n"
 "POT-Creation-Date: 2013-01-19 07:06+0100\n"
-"PO-Revision-Date: 2012-12-07 23:34+0000\n"
-"Last-Translator: Lorenzo Carbonell <Unknown>\n"
-"Language-Team: Italian <it@li.org>\n"
+"PO-Revision-Date: 2014-01-03 13:51+0000\n"
+"Last-Translator: Tadeáš Pařík <tadeas.parik@gmail.com>\n"
+"Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2014-03-23 08:48+0000\n"
 "X-Generator: Launchpad (build 16967)\n"
-"Language: it\n"
+"Language: cs\n"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/task_dialog.py:43
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:309
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:292
 msgid "Add new task"
-msgstr "Aggiungi una nuova Attività"
+msgstr "Přidat nový úkol"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/task_dialog.py:45
 msgid "Edit task"
-msgstr "Modifica attività"
+msgstr "Upravit úkol"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/task_dialog.py:62
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:68
 msgid "Task List"
-msgstr ""
+msgstr "Seznam úkolů"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/task_dialog.py:74
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/tasklist_dialog.py:58
 msgid "Title"
-msgstr "Titolo"
+msgstr "Titul"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/task_dialog.py:78
 msgid "Notes"
-msgstr "Note"
+msgstr "Poznámky"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/task_dialog.py:82
 msgid "Completed"
-msgstr "Completata"
+msgstr "Dokončeno"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/task_dialog.py:86
 msgid "Date due"
-msgstr "Scadenza"
+msgstr "Plánované dokončení"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/tasklist_dialog.py:40
 msgid "Add new tasklist"
-msgstr ""
+msgstr "Přidat nový seznam úkolů"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/tasklist_dialog.py:42
 msgid "Edit tasklist"
-msgstr ""
+msgstr "Upravit seznam úkolů"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/show_tasks_dialog.py:45
 msgid "Show Tasks"
-msgstr "Mostra Attività"
+msgstr "Zobraz úkoly"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/show_tasks_dialog.py:82
 msgid "Up"
-msgstr "Sposta in alto"
+msgstr "Nahoru"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/show_tasks_dialog.py:89
 msgid "Down"
-msgstr "Sposta in basso"
+msgstr "Dolů"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/show_tasks_dialog.py:96
 msgid "Mark as completed"
-msgstr "Segna come completata"
+msgstr "Označit jako dokončené"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/show_tasks_dialog.py:103
 msgid "Edit"
-msgstr "Modifica"
+msgstr "Upravit"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/show_tasks_dialog.py:110
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:314
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:297
 msgid "Clear completed tasks"
-msgstr "Elimina attività completate"
+msgstr "Vymazat dokončené úkoly"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:169
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:164
@@ -91,46 +91,49 @@ msgid ""
 "Calendar.\n"
 " Do you want to authorize?"
 msgstr ""
+"Musíte autorizovat aplikaci Google-Tasks-Indicator pro správu vašeho Google "
+"kalendáře.\n"
+" Chcete to udělat?"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:310
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:294
 msgid "Add new task list"
-msgstr ""
+msgstr "Přidat nový seznam úkolů"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:311
 msgid "Manage tasklists"
-msgstr ""
+msgstr "Spravovat seznamy úkolů"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:313
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:296
 msgid "Refresh"
-msgstr "Aggiorna"
+msgstr "Obnovit"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:315
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:298
 msgid "Show all tasks"
-msgstr "Visualizza tutte le attività"
+msgstr "Zobrazit všechny úkoly"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:316
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:299
 msgid "Synchronize with Google"
-msgstr ""
+msgstr "Synchronizovat s Google"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:319
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:45
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:302
 msgid "Preferences"
-msgstr "Preferenze"
+msgstr "Nastaveni"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:321
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:304
 msgid "Help"
-msgstr "Aiuto"
+msgstr "Nápověda"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:324
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:307
 msgid "Exit"
-msgstr "Esci"
+msgstr "Konec"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:332
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:315
@@ -140,22 +143,22 @@ msgstr "Web..."
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:333
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:316
 msgid "Get help online..."
-msgstr "Ottenere aiuto in linea..."
+msgstr "Získat pomoc online..."
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:334
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:317
 msgid "Translate this application..."
-msgstr "Traduci questa applicazione..."
+msgstr "Přeložit tuto aplikaci..."
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:335
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:318
 msgid "Report a bug..."
-msgstr "Segnalare un problema..."
+msgstr "Nahlásit chybu..."
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:337
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:325
 msgid "About"
-msgstr "Informazioni su..."
+msgstr "O aplikaci"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:456
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:453
@@ -175,94 +178,96 @@ msgstr "Informazioni su..."
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:47
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:48
 msgid "An indicator for Google Tasks"
-msgstr "Un indicatore per Google Tasks"
+msgstr "Indikátor Google Tasks"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:61
 msgid "Options"
-msgstr "Opzioni"
+msgstr "Možnosti"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:80
 msgid "Autostart"
-msgstr "Avvio automatico"
+msgstr "Automatické spuštění"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:87
 msgid "Theme light"
-msgstr "Tema chiaro"
+msgstr "Odlehčený vzhled"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:95
 msgid "Sync options"
-msgstr ""
+msgstr "Možnosti synchronizace"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:103
 msgid "Tasks local only"
-msgstr ""
+msgstr "Pouze lokální úkoly"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:108
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:130
 msgid "Copy to external"
-msgstr ""
+msgstr "Kopírovat do externího"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:110
 msgid "Delete local"
-msgstr ""
+msgstr "Smazat místní"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:112
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:124
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:132
 msgid "Do none"
-msgstr ""
+msgstr "Neudělá nic"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:115
 msgid "Tasks external only"
-msgstr ""
+msgstr "Pouze externí úkoly"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:120
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:128
 msgid "Copy to local"
-msgstr ""
+msgstr "Kopírovat do lokálního"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:122
 msgid "Delete external"
-msgstr ""
+msgstr "Vymazat externí"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:135
 msgid "Tasks local and external"
-msgstr ""
+msgstr "Ukoly lokální a externí"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:141
 msgid "Login"
-msgstr ""
+msgstr "Přihlášení"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:149
 msgid "Allow access to Google Tasks"
-msgstr ""
+msgstr "Povolit přístu do Google Tasks"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:195
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:280
 msgid "All"
-msgstr ""
+msgstr "Vše"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/preferences_dialog.py:272
 msgid ""
 "You have to authorize Google-Task-Indicator to use it, do you want to "
 "authorize?"
 msgstr ""
+"Musíte autorizovat Google-Task-Indicator pro jeho použití, chcete provést "
+"autorizaci?"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:320
 msgid "Homepage"
-msgstr ""
+msgstr "Domovská stránka"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:321
 msgid "Follow us in Twitter"
-msgstr ""
+msgstr "Sledujte nás na Twitteru"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:322
 msgid "Follow us in Google+"
-msgstr ""
+msgstr "Sledujte nás na Google+"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/googletasksindicator.py:323
 msgid "Follow us in Facebook"
-msgstr ""
+msgstr "Sledujte nás na Facebooku"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:11
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:12
@@ -280,7 +285,7 @@ msgstr ""
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:40
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:41
 msgid "Google-Taks-Indicator"
-msgstr ""
+msgstr "Google-Taks-Indicator"
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:27
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:28
@@ -298,4 +303,4 @@ msgstr ""
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:54
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/Google-Tasks-Indicator.desktop.in:55
 msgid "Google-Tasks-Indicator"
-msgstr ""
+msgstr "Google-Tasks-Indicator"
