@@ -1,10 +1,11 @@
-google-tasks-indicator (0.5.2-0.extras14.04.0) saucy; urgency=low
+google-tasks-indicator (0.5.2-0.extras14.04.2) trusty; urgency=low
 
   * Migrated to Trusty Tahr
   * Fixed some deprecations
   * Updated translations
+  * Fixed launcher to python3
 
- -- Lorenzo Carbonell <atareao@trusty>  Sun, 23 Mar 2014 10:04:42 +0100
+ -- Lorenzo Carbonell <atareao@trusty>  Sun, 23 Mar 2014 21:58:06 +0100
 
 google-tasks-indicator (0.0.5.1.precise.1-1ubuntu1) precise; urgency=low
 
