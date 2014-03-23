@@ -17,11 +17,6 @@ msgstr ""
 "X-Launchpad-Export-Date: 2014-03-23 08:48+0000\n"
 "X-Generator: Launchpad (build 16967)\n"
 "Language: es\n"
-<<<<<<< TREE
-=======
-"X-Generator: Launchpad (build 16430)\n"
-"X-Launchpad-Export-Date: 2013-01-19 06:00+0000\n"
->>>>>>> MERGE-SOURCE
 
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/task_dialog.py:43
 #: /home/atareao/Dropbox/tp/precise/google-tasks-indicator/src/google-tasks-indicator.py:309
