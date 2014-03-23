@@ -21,18 +21,6 @@ import codecs
 
 DATA_FILES = [
 ('/usr/share/google-tasks-indicator',glob.glob('src/*.py')),
-<<<<<<< TREE
-=======
-('/usr/share/google-tasks-indicator/requests',glob.glob('src/requests/*.py')),
-('/usr/share/google-tasks-indicator/requests',glob.glob('src/requests/*.pem')),
-('/usr/share/google-tasks-indicator/requests/packages',glob.glob('src/requests/packages/*.py')),
-('/usr/share/google-tasks-indicator/requests/packages/charade',glob.glob('src/requests/packages/charade/*.py')),
-('/usr/share/google-tasks-indicator/requests/packages/chardet',glob.glob('src/requests/packages/chardet/*.py')),
-('/usr/share/google-tasks-indicator/requests/packages/urllib3',glob.glob('src/requests/packages/urllib3/*.py')),
-('/usr/share/google-tasks-indicator/requests/packages/urllib3/contrib',glob.glob('src/requests/packages/urllib3/contrib/*.py')),
-('/usr/share/google-tasks-indicator/requests/packages/urllib3/packages',glob.glob('src/requests/packages/urllib3/packages/*.py')),
-('/usr/share/google-tasks-indicator/requests/packages/urllib3/packages/ssl_match_hostname',glob.glob('src/requests/packages/urllib3/packages/ssl_match_hostname/*.py')),
->>>>>>> MERGE-SOURCE
 ('/usr/bin', ['bin/google-tasks-indicator']),
 ('/usr/share/applications', ['data/Google-Tasks-Indicator.desktop']),
 ('/usr/share/google-tasks-indicator', ['data/google-tasks-indicator-autostart.desktop']),
